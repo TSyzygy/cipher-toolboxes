@@ -114,7 +114,7 @@ She slipped through the straw and fell in.</textarea><br>
 
 				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="40" id="freqAlphabet" readonly><br>
 
-				<span class="inline-p">Case sensitive? </span><input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><br>
+				<input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><label for="freqCaseSensitive"> Case Sensitive?</label><br>
 
 				<input type="radio" name="alphabet" value="letters" id="letters" onchange="updateFreqAlphabet()" checked><label for="letters"> A-Z</label><br>
 				<input type="radio" name="alphabet" value="lettersAndNumbers" id="lettersAndNumbers" onchange="updateFreqAlphabet()"><label for="lettersAndNumbers"> A-Z and 0-9</label><br>
@@ -126,7 +126,7 @@ She slipped through the straw and fell in.</textarea><br>
 				<input type="radio" name="toAnalyse" value="ngrams" id="ngrams" onchange="updateToAnalyse()"><label for="ngrams"> N-grams</label><br>
 				
 				<div id="forNGrams" style="display: none;">
-					<span class="inline-p"> N: </span><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
+					<label for="n"> N: </label><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
 					<input type="radio" name="ngramType" value="sliding" id="sliding" checked><label for="sliding"> Sliding Window </label><span class="tooltip">?<span class="tooltiptext" style="width: 200px;">(ABCDEF → AB,BC,CD,DE,EF)</span></span><br>
 					<input type="radio" name="ngramType" value="blocks" id="blocks"><label for="blocks"> Blocks </label><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
 				</div>

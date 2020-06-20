@@ -198,6 +198,10 @@ label  {
 	font-size: 15px;
 }
 
+input:focus {
+    outline: none;
+}
+
 a.anchor {
     display: block;
     position: relative;

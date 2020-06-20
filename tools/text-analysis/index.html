@@ -1,0 +1,148 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>Text Analysis Tools - Cipher Toolboxes</title>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lexend+Deca|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+		<header>
+			<h3><a href="https://cct--thomass1.repl.co">CIPHER TOOLBOXES</a></h2>
+			<ul>
+				<li><a href="">ABOUT</a></li>
+				<li><a href="">COOL STUFF</a></li>
+				<li><a href="">CIPHERS</a></li>
+				<li><a href="">TOOLS</a></li>
+			</ul>
+		</header>
+
+		<section id="landing">
+			<h1 id="title"></h1>
+			<h4 id="subtitle"></h4>
+		</section>
+
+		<section id="contents">
+			<h2>TOOLS LIST</h2>
+			<ul class="contentsList">
+				<li><a href="#ioc">Index of Coincidence Calculator</a></li>
+				<li><a href="#frequency-analysis">Frequency Analysis</a></li>
+				<li><a href="#">Cipher Detector</a></li>
+			</ul>
+		</section>
+
+		<section id="iocSection">
+			<a class="anchor" id="ioc"></a>
+			<h2>INDEX OF COINCIDENCE CALCULATOR</h2>
+
+			<form autocomplete="off" id="iocForm">
+				<p>Message:</p>
+				<textarea name="message" rows="10" cols="40" id="iocMessage">There was an Old Man with a beard
+Who said, "It is just as I feared!
+Two Owls and a Hen,
+Four Larks and a Wren,
+Have all built their nests in my beard!"</textarea>
+				<p>Alphabet:</p>
+				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="30" id="iocAlphabet"><br>
+        <span id="inline-p">Case sensitive? <i style="letter-spacing: -1px">(no for ordinary IOC)</i> </span><input type="checkbox" id="iocCaseSensitive"><br>
+				<button type="reset">RESET</button><br>
+				<button type="button" onclick="calculateIOC()">CALCULATE</button><br>
+				<p style="margin-top: 3px;">Result: <span id="iocResult"></span></p>
+			</form>
+
+			<h4 class="expandTitle">What is the Index of Coincidence?</h4>
+      <div class="expandContent">
+        <p>The index of coincidence of a text is the probability of two randomly drawn letters from that text being the same. A higher IOC means that this probability is higher, which occurs when some letters appear much more often than others. On the other hand, a 'flatter' set of letter frequencies would lead to a lower IOC.</p>
+        <p>The index of coincidence can be used as a simple way of comparing two texts. For cryptography it is often used to see how likely a given text is to be in a certain language, by comparing the text's IOC to the language's average IOC (see below). It can also be used to predict what type of cipher a text is encrypted with, since some ciphers, such as simple substitution ciphers, do not change a text's IOC at all, while more complex ciphers such as the vignere will reduce the IOC significantly, since they 'flatten' the letter frequencies.</p>
+      </div>
+
+			<h4 class="expandTitle">IOC for different languages</h4>
+      <div class="expandContent">
+        <p>Different languages, of course, have different IOCs - here are a few:</p>
+        <ul id="iocLanguages">
+          <li>English:   1.73</li>
+          <li>French:    2.02</li>
+          <li>German:    2.05</li>
+          <li>Italian:   1.94</li>
+          <li>Portugese: 1.94</li>
+          <li>Russian:   1.76</li>
+          <li>Spanish:   1.94</li>
+        </ul>
+        <p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Index_of_coincidence">Wikipedia</a></p>
+      </div>
+
+			<h4 class="expandTitle">Example use of the Index of Coincidence</h4>
+      <div class="expandContent">
+        <p>For this example, we will use a part of Martin Luther King's 'I have a dream' speech:</p>
+        <p class="quote">I have a dream that one day this nation will rise up and live out the true meaning of its creed: "We hold these truths to be self-evident, that all men are created equal."</p>
+        <p class="quote">I have a dream that one day on the red hills of Georgia, the sons of former slaves and the sons of former slave owners will be able to sit down together at the table of brotherhood.</p>
+        <p class="quote">I have a dream that one day even the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the heat of oppression, will be transformed into an oasis of freedom and justice.</p>
+        <p class="quote">I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.</p>
+        <p>If you copy that text into the index of coindidence calculator above, you will find that it has an index of coincidence of 1.8442, which is noticably higher than expected for English plaintext. Why? Presumably because of all of the repetitions of 'I have a dream'! Now let's compare that to when it is encrypted with a substitution and vigenere cipher. We'll use the key <x>MLK</x> for both.</p>
+        <p>With a monoalphabetic substitution cipher (alphabet <x>MLKABCDEFGHIJNOPQRSTUVWXYZ</x> - woah, just noticed that MLK's initials are in reverse alphabetical order!), we get the following ciphertext:</p>
+        <p style="font-family: 'Ubuntu Mono', monospace;">F EMVB M ARBMJ TEMT ONB AMY TEFS NMTFON WFII RFSB UP MNA IFVB OUT TEB TRUB JBMNFND OC FTS KRBBA: "WB EOIA TEBSB TRUTES TO LB SBIC-BVFABNT, TEMT MII JBN MRB KRBMTBA BQUMI."
+F EMVB M ARBMJ TEMT ONB AMY ON TEB RBA EFIIS OC DBORDFM, TEB SONS OC CORJBR SIMVBS MNA TEB SONS OC CORJBR SIMVB OWNBRS WFII LB MLIB TO SFT AOWN TODBTEBR MT TEB TMLIB OC LROTEBREOOA.
+F EMVB M ARBMJ TEMT ONB AMY BVBN TEB STMTB OC JFSSFSSFPPF, M STMTB SWBITBRFND WFTE TEB EBMT OC FNGUSTFKB, SWBITBRFND WFTE TEB EBMT OC OPPRBSSFON, WFII LB TRMNSCORJBA FNTO MN OMSFS OC CRBBAOJ MNA GUSTFKB.
+F EMVB M ARBMJ TEMT JY COUR IFTTIB KEFIARBN WFII ONB AMY IFVB FN M NMTFON WEBRB TEBY WFII NOT LB GUADBA LY TEB KOIOR OC TEBFR SHFN LUT LY TEB KONTBNT OC TEBFR KEMRMKTBR.</p>
+        <p>And, as expected, the IOC is exactly the same (1.8442). This is because when we calculate the index of coincidence, we don't take into account <em>which</em> letters are more/less frequent - so even when we change all of the letters to a different character, as long as each encrypted character represents just one decrypted character, the IOC will stay the same. This means that a ciphertext with an IOC around 1.73 is likely to be a monoalphabetic substitution of an English plaintext! Then all you need is a <a href="#frequency">frequency analysis</a> of the text and you should be able to crack it!</p>
+        <p>After encrypting the plaintext with a vignere cipher (key <x>MLK</x>), we get the following ciphertext:</p>
+        <p style="font-family: 'Ubuntu Mono', monospace;">U SKHP K PCOMX DTLD AYO PLI FSSE YKFTYZ HSXW BUDO GA KZO VUGO AFD FSO FCEQ XOMYSZR YR TDE NBQPN: "IP RAWN FSOEP DDFDTD DA MO EPVR-PFUOOZE, DTLD MWV YPX MCO OCOMEOP PAGLV."
+U SKHP K PCOMX DTLD AYO PLI AY DTP BQO RUWVE ZP SPYDRSM, ERQ DYZD YR QYDXOD DVMGOE LXP ERQ DYZD YR QYDXOD DVMGO AHXQCC ITVX MO MMVQ EY ETD PZGZ EYSPDTPB ME DTP DMMVQ ZP NCYFSODSYAO.
+S TLFQ L NDPKY ERME YZP NMJ OHPX FSO EEKFP YR XSEDSEDSBAS, M DDMEO EHOXEODTXS HSFS DTP RQLD AQ SZUEEESOP, CIPVFPBUYQ ITDT ERQ SOME YR ZZBCOEDSAY, GUWV NP DDLXEQYDXOP TXFZ KZ ZKETC AQ PDPOPZW MYN VFCFTMQ.
+T RMGO M OBQLW FSKF XI RZED WSFEVQ NRUWNDPX ITVX ZXQ OKK WSHP SZ L XMESAY GTPBQ ERQJ GUWV ZZD NP TGOQQO LK ERQ NYXZB AQ DTPSD DUUY LGE LK ERQ NYZEOZE YR ERQTB OSKDLMFPB.</p>
+        <p>The IOC for that ciphertext is 1.2681 - much lower than the original. This is because the vignere is a much more effective cipher which 'scrambles' all the letters far more, thus making it much more random and flattened. Since the characters have more 
+        even frequencies, the chance of picking two the same is lower, and thus so is the IOC.</p>
+      </div>
+		</section>
+
+		<section id="freqSection">
+			<a class="anchor" id="frequency-analysis"></a>
+			<h2>FREQUENCY ANALYSIS</h2>
+
+			<form autocomplete="off" id="freqForm" onreset="resetFreqForm()">
+				<p>Message:</p>
+				<textarea name="message" rows="10" cols="40" id="freqMessage">There was a young lady of Lynn,
+Who was so uncommonly thin
+That when she essayed
+To drink lemonade
+She slipped through the straw and fell in.</textarea><br>
+
+				<p>Alphabet:</p>
+
+				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="40" id="freqAlphabet" readonly><br>
+
+				<span id="inline-p">Case sensitive? </span><input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><br>
+
+				<input type="radio" name="alphabet" value="letters" id="letters" onchange="updateFreqAlphabet()" checked><span id="inline-p"> A-Z</span><br>
+				<input type="radio" name="alphabet" value="lettersAndNumbers" id="lettersAndNumbers" onchange="updateFreqAlphabet()"><span id="inline-p"> A-Z and 0-9</span><br>
+				<input type="radio" name="alphabet" value="allChars" id="allChars" onchange="updateFreqAlphabet()"><span id="inline-p"> All characters in message</span><br>
+				<input type="radio" name="alphabet" value="custom" id="custom" onchange="updateFreqAlphabet()"><span id="inline-p"> Custom</span><br>
+
+				<p style="margin-top: 5px;">To analyse:</p>
+				<input type="radio" name="toAnalyse" value="chars" id="chars" onchange="updateToAnalyse()" checked><span id="inline-p"> Individual Characters</span><br>
+				<input type="radio" name="toAnalyse" value="ngrams" id="ngrams" onchange="updateToAnalyse()"><span id="inline-p"> N-grams</span><br>
+				
+				<div id="forNGrams" style="display: none;">
+					<span id="inline-p"> N: </span><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
+					<input type="radio" name="ngramType" value="sliding" id="sliding" checked><span id="inline-p"> Sliding Window </span><span class="tooltip">?<span class="tooltiptext" style="width: 200px;">(ABCDEF → AB,BC,CD,DE,EF)</span></span><br>
+					<input type="radio" name="ngramType" value="blocks" id="blocks"><span id="inline-p"> Blocks </span><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
+				</div>
+
+				<button type="reset" onclick="document.getElementById('orderByFreq').classList.remove('invert'); document.getElementById('orderByChar').classList.remove('invert');">RESET</button><br>
+				<button type="button" onclick="doFreqAnalysis('freq', false); document.getElementById('orderByFreq').classList.add('invert');">CALCULATE</button><br>
+        <p style="margin-top: 3px; white-space: pre-wrap; color: grey;">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
+				<ul id="freqResult"></ul>
+			</form>
+      
+    <h4 class="expandTitle">Expected frequencies</h4>
+    <div class="expandContent">
+
+    </div>
+
+		</section>
+
+  </body>
+</html>

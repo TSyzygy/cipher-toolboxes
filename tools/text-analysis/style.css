@@ -1,0 +1,311 @@
+page {
+  min-height: 100%
+}
+
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#headerLogo {
+	height: 5vh;
+}
+
+header ul {
+  list-style-type: none;
+	display: inline;
+	overflow: hidden;
+	background-color: #003b87;
+}
+
+header li {
+  	float: right;
+    border-right: 1px solid white;
+}
+
+header li a {
+  display: block;
+	text-decoration: none;
+	text-align: center;
+  line-height: 45px;
+	padding: 0 18px;
+	color: white;
+  background-color: #003b87;
+	font-family: 'Lexend Deca', sans-serif;
+}
+
+header li a:hover {
+  	background-color: #111;
+}
+
+header li:first-child {
+  	border-right: none;
+}
+
+header {
+	background-color: #003b87;
+	height: 45px;
+	position: fixed;
+	width: 100%
+}
+
+#landing {
+	background-color: #004aa8;
+	height: 22vh;
+}
+
+#landing #title {
+	display: block;
+	padding-top: 10vh;
+	text-align: center;
+}
+
+#landing #subtitle {
+	line-height: 1.5;
+  text-align: center;
+	font-family: 'Ubuntu Mono', monospace;
+	color: white;
+	font-weight: 400;
+}
+
+section {
+	padding: 0 18px;
+}
+
+h1 {
+	font-family: 'Ubuntu Mono', monospace;
+	color: white;
+	text-align: center;
+}
+
+h3 {
+	display: inline;
+  line-height: 45px;
+	padding-left: 10px;
+	font-family: 'Ubuntu Mono', monospace;
+	color: white;
+}
+
+h3 a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h4 {
+	font-family: 'Ubuntu Mono', monospace;
+	font-weight: 700;
+	font-size: 15px;
+	color: #004aa8;
+	text-align: left;
+  margin-bottom: 5px;
+}
+
+h2 {
+	font-family: 'Lexend Deca', sans-serif;
+	color: #003b87;
+	font-size: 24px;
+	padding: 2vh 0;
+	margin: 0;
+}
+
+.contentsList {
+	font-family: 'Inconsolata', monospace;
+	font-weight: 400;
+	list-style-type: none;
+	padding-bottom: 2vh
+}
+
+.contentsList li a {
+	color: black;
+	text-decoration: none;
+}
+
+.contentsList li a:hover {
+	color: #003b87;
+}
+
+p {
+	font-family: 'Inconsolata', monospace;
+	font-size: 15px;
+	padding-bottom: 1vh;
+}
+
+#iocLanguages {
+	font-family: 'Inconsolata', monospace;
+	font-size: 15px;
+	list-style-type: none;
+}
+
+.quote {
+	font-size: 12px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	margin: 0 18px;
+}
+
+x {
+	display: inline;
+	font-family: 'Ubuntu Mono', monospace;
+	color: white;
+	background-color: grey;
+	padding: 2px;
+}
+
+p a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p a:hover {
+	color: #003b87;
+}
+
+#iocSection form #iocMessage {
+	font-family: 'Ubuntu Mono', monospace;
+	border: 1px solid grey;
+	padding: 2px;
+}
+
+#iocSection form #iocAlphabet {
+	font-family: 'Ubuntu Mono', monospace;
+	border: 1px solid grey;
+	padding: 2px;
+}
+
+form button {
+	padding: 3px;
+	margin-top: 5px;
+	font-family: 'Lexend Deca', sans-serif;
+	color: white;
+	background-color: #004aa8;
+}
+
+form button:hover {
+	background-color: #003b87;
+}
+
+form p {
+	padding-bottom: 1px;
+}
+
+form {
+	margin-bottom: 5px;
+}
+
+#inline-p {
+	font-family: 'Inconsolata', monospace;
+	font-size: 15px;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -5vh;
+    visibility: hidden;
+}
+
+#freqSection form #freqMessage {
+	font-family: 'Ubuntu Mono', monospace;
+	border: 1px solid grey;
+	padding: 2px;
+}
+
+#freqSection form #freqAlphabet {
+	font-family: 'Ubuntu Mono', monospace;
+	border: 1px solid grey;
+	padding: 2px;
+}
+
+#freqSection form #n {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 15px;
+}
+
+/* Tooltip container */
+.tooltip {
+	font-family: 'Ubuntu Mono', monospace;
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 15px;
+	visibility: hidden;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 2px 0;
+	margin-left: 5px;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	top: -2px;
+  left: 105%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  	visibility: visible;
+}
+
+#forNGrams {
+	margin-left: 10px;
+}
+
+#freqResult li {
+	font-family: 'Inconsolata', monospace;
+	font-size: 15px;
+	white-space: pre-wrap;
+	margin: 0 -18px;
+	/* add back negative margin value */
+	padding: 0 18px;
+}
+
+#freqResult li:nth-child(odd) { 
+	background: #c8ddf8;
+}
+
+#freqResult {
+	list-style-type: none;
+}
+
+.orderButton {
+	color: black;
+	cursor: s-resize;
+}
+
+.orderButton.invert {
+	cursor: n-resize;
+}
+
+/* expandable info */
+
+/* expandable info */
+
+h4.expandTitle:hover {
+  color: #003b87;
+  cursor: n-resize;
+}
+
+h4.expandTitle.hidden:hover {
+  cursor: s-resize;
+}
+
+h4.expandTitle::after{
+  content: " \25BE";
+  font-size: 10px;
+}
+
+/* sizing issues with down/up arrows
+h4.expandTitle.hidden::after {
+  content: " \25B4";
+}
+*/
+
+div.expandContent.hidden{
+  display: none;
+}

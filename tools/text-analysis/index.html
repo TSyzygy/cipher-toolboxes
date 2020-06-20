@@ -1,17 +1,17 @@
   <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Text Analysis Tools - Cipher Toolboxes</title>
-      <link href="style.css" rel="stylesheet" type="text/css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Text Analysis Tools - Cipher Toolboxes</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lexend+Deca|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
     <script src="script.js"></script>
 
 		<header>
-			<h3><a href="https://cct--thomass1.repl.co">CIPHER TOOLBOXES</a></h2>
+			<h3><a href="">CIPHER TOOLBOXES</a></h3>
 			<ul>
 				<li><a href="">ABOUT</a></li>
 				<li><a href="">COOL STUFF</a></li>
@@ -30,7 +30,7 @@
 			<ul class="contentsList">
 				<li><a href="#ioc">Index of Coincidence Calculator</a></li>
 				<li><a href="#frequency-analysis">Frequency Analysis</a></li>
-				<li><a href="#">Cipher Detector</a></li>
+				<li><a href="#cipher-detector">Cipher Detector</a></li>
 			</ul>
 		</section>
 
@@ -47,7 +47,7 @@ Four Larks and a Wren,
 Have all built their nests in my beard!"</textarea>
 				<p>Alphabet:</p>
 				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="30" id="iocAlphabet"><br>
-        <span id="inline-p">Case sensitive? <i style="letter-spacing: -1px">(no for ordinary IOC)</i> </span><input type="checkbox" id="iocCaseSensitive"><br>
+        <input type="checkbox" id="iocCaseSensitive"><label for="iocCaseSensitive"> Case sensitive? <i style="letter-spacing: -1px">(no for ordinary IOC)</i></label><br>
 				<button type="reset">RESET</button><br>
 				<button type="button" onclick="calculateIOC()">CALCULATE</button><br>
 				<p style="margin-top: 3px;">Result: <span id="iocResult"></span></p>
@@ -114,21 +114,21 @@ She slipped through the straw and fell in.</textarea><br>
 
 				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="40" id="freqAlphabet" readonly><br>
 
-				<span id="inline-p">Case sensitive? </span><input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><br>
+				<span class="inline-p">Case sensitive? </span><input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><br>
 
-				<input type="radio" name="alphabet" value="letters" id="letters" onchange="updateFreqAlphabet()" checked><span id="inline-p"> A-Z</span><br>
-				<input type="radio" name="alphabet" value="lettersAndNumbers" id="lettersAndNumbers" onchange="updateFreqAlphabet()"><span id="inline-p"> A-Z and 0-9</span><br>
-				<input type="radio" name="alphabet" value="allChars" id="allChars" onchange="updateFreqAlphabet()"><span id="inline-p"> All characters in message</span><br>
-				<input type="radio" name="alphabet" value="custom" id="custom" onchange="updateFreqAlphabet()"><span id="inline-p"> Custom</span><br>
+				<input type="radio" name="alphabet" value="letters" id="letters" onchange="updateFreqAlphabet()" checked><label for="letters"> A-Z</label><br>
+				<input type="radio" name="alphabet" value="lettersAndNumbers" id="lettersAndNumbers" onchange="updateFreqAlphabet()"><label for="lettersAndNumbers"> A-Z and 0-9</label><br>
+				<input type="radio" name="alphabet" value="allChars" id="allChars" onchange="updateFreqAlphabet()"><label for="allChars"> All characters in message</label><br>
+				<input type="radio" name="alphabet" value="custom" id="custom" onchange="updateFreqAlphabet()"><label for="custom"> Custom</label><br>
 
 				<p style="margin-top: 5px;">To analyse:</p>
-				<input type="radio" name="toAnalyse" value="chars" id="chars" onchange="updateToAnalyse()" checked><span id="inline-p"> Individual Characters</span><br>
-				<input type="radio" name="toAnalyse" value="ngrams" id="ngrams" onchange="updateToAnalyse()"><span id="inline-p"> N-grams</span><br>
+				<input type="radio" name="toAnalyse" value="chars" id="chars" onchange="updateToAnalyse()" checked><label for="chars"> Individual Characters</label><br>
+				<input type="radio" name="toAnalyse" value="ngrams" id="ngrams" onchange="updateToAnalyse()"><label for="ngrams"> N-grams</label><br>
 				
 				<div id="forNGrams" style="display: none;">
-					<span id="inline-p"> N: </span><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
-					<input type="radio" name="ngramType" value="sliding" id="sliding" checked><span id="inline-p"> Sliding Window </span><span class="tooltip">?<span class="tooltiptext" style="width: 200px;">(ABCDEF → AB,BC,CD,DE,EF)</span></span><br>
-					<input type="radio" name="ngramType" value="blocks" id="blocks"><span id="inline-p"> Blocks </span><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
+					<span class="inline-p"> N: </span><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
+					<input type="radio" name="ngramType" value="sliding" id="sliding" checked><label for="sliding"> Sliding Window </label><span class="tooltip">?<span class="tooltiptext" style="width: 200px;">(ABCDEF → AB,BC,CD,DE,EF)</span></span><br>
+					<input type="radio" name="ngramType" value="blocks" id="blocks"><label for="blocks"> Blocks </label><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
 				</div>
 
 				<button type="reset" onclick="document.getElementById('orderByFreq').classList.remove('invert'); document.getElementById('orderByChar').classList.remove('invert');">RESET</button><br>

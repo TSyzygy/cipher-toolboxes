@@ -193,7 +193,7 @@ form {
 	margin-bottom: 5px;
 }
 
-#inline-p {
+label  {
 	font-family: 'Inconsolata', monospace;
 	font-size: 15px;
 }

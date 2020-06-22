@@ -133,7 +133,7 @@ function frequencyAnalysis(text, caseSensitive, alphabet, toAnalyse, n, ngramTyp
 	}
 
 	// Removes all chars not in alphabet
-	text = text.split('').filter(c => alphabet.indexOf(c) > -1).join("")
+	text = text.split("").filter(c => alphabet.indexOf(c) > -1).join("")
 
 	if (toAnalyse == "chars") {
 
@@ -165,6 +165,8 @@ function frequencyAnalysis(text, caseSensitive, alphabet, toAnalyse, n, ngramTyp
 }
 
 function doFreqAnalysis(order, invert) {
+	document.getElementById("freqHeadings").classList.remove("hidden"); // Ensures headings are shown
+
 	var text = document.getElementById("freqMessage").value;
 	var caseSensitive = document.getElementById("freqCaseSensitive").checked;
 	var alphabet = document.getElementById("freqAlphabet").value;
@@ -172,27 +174,31 @@ function doFreqAnalysis(order, invert) {
 	var n = document.getElementById("n").value;
 	var ngramType = document.querySelector('input[name="ngramType"]:checked').value;
 
-	fillFreqResults(
+	fillResults(
 		frequencyAnalysis(text, caseSensitive, alphabet, toAnalyse, n, ngramType),
 		order,
 		invert,
-		text
+		"freqResult",
+		function (i, d) {
+			var sum = d.map(x => x[1]).reduce((a,b) => Number(a) + Number(b), 0);
+        	return padAfter(padBefore(i, String(d.length).length), 7) + padAfter(d[i][0], 7) + padAfter(d[i][1], 7) + (((d[i][1] / sum)*100).toFixed(2))
+        }
 	);
 }
 
-function fillFreqResults(result, order, invert) {
+function padBefore(text, size) {
+    var s = String(text);
+    while (s.length < (size || 2)) {s = " " + s;}
+    return s;
+} // source: https://gist.github.com/endel/321925f6cafa25bbfbde
 
-	function padBefore(text, size) {
-		var s = String(text);
-		while (s.length < (size || 2)) {s = " " + s;}
-		return s;
-	} // source: https://gist.github.com/endel/321925f6cafa25bbfbde
+function padAfter(text, size) {
+    var s = String(text);
+    while (s.length < (size || 2)) {s += " ";}
+    return s;
+} // source: https://gist.github.com/endel/321925f6cafa25bbfbde
 
-	function padAfter(text, size) {
-		var s = String(text);
-		while (s.length < (size || 2)) {s += " ";}
-		return s;
-	} // source: https://gist.github.com/endel/321925f6cafa25bbfbde
+function fillResults(result, order, invert, location, lineText) {
 
 	var ordered = [];
 	for (var key in result) {
@@ -211,22 +217,51 @@ function fillFreqResults(result, order, invert) {
 		ordered = ordered.reverse()
 	}
 
-	var s = String(ordered.length).length; // length of string of number of items in result
-	var n = Math.max(Object.keys(ordered));
-	var sum = ordered.map(x => x[1]).reduce((a,b) => Number(a) + Number(b), 0)
+	// var n = Math.max(Object.keys(ordered));
 
-    document.getElementById("freqHeadings").classList.remove("hidden"); // Ensures headings are shown
-	document.getElementById("freqResult").innerHTML = ""; // Clears previous results
+	document.getElementById(location).innerHTML = ""; // Clears previous results
 	for (i = 0; i < ordered.length; i++) {
 		var node = document.createElement("LI"); // Create a <li> node
-    var text = padAfter(padBefore(i, s), 7) + padAfter(ordered[i][0], 7) + padAfter(ordered[i][1], 7) + (((ordered[i][1] / sum)*100).toFixed(2)) // The text for line i
+		var text = lineText(i, ordered) // The text for line i
 		node.appendChild(document.createTextNode(text)); // Append the text to <li>
-		document.getElementById("freqResult").appendChild(node); // Append <li> to <ul> with id="freqResult"
+		document.getElementById(location).appendChild(node); // Append <li> to <ul> with id="freqResult"
 	}
 }
 
+function orderEnglishFreq(order, invert) {
+	englishFreq = {
+"E": "11.2",
+"T": "9.36",
+"A": "8.50",
+"R": "7.59",
+"I": "7.55",
+"O": "7.51",
+"N": "6.75",
+"S": "6.33",
+"H": "6.09",
+"D": "4.25",
+"L": "4.03",
+"U": "2.76",
+"W": "2.56",
+"M": "2.41",
+"F": "2.23",
+"C": "2.20",
+"G": "2.02",
+"Y": "1.99",
+"P": "1.93",
+"B": "1.49",
+"K": "1.29",
+"V": "0.978",
+"J": "0.153",
+"X": "0.150",
+"Q": "0.095",
+"Z": "0.077",
+	}
+	fillResults(englishFreq, order, invert, "englishFreq", function (i, d) {return padAfter(padBefore(i, String(d.length).length), 7) + padAfter(d[i][0], 7) + d[i][1]})
+}
+
 // runs on page load
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener("DOMContentLoaded", function (event) {
   startTextAnimation(0);
   setupExpandInfo();
 })

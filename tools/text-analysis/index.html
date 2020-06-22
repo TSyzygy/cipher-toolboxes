@@ -10,6 +10,12 @@
   <body>
     <script src="script.js"></script>
 
+		<noscript>
+			<div id="noscriptAlert">
+				<p>You don't have <em>javascript</em> enabled for this webpage. All of the tools on this website require javascript to function, so we recommend that you <a href="https://www.enable-javascript.com">turn it on.</a></p>
+			</div>
+		</noscript>
+
 		<header>
 			<h3><a href="">CIPHER TOOLBOXES</a></h3>
 			<ul>
@@ -21,8 +27,8 @@
 		</header>
 
 		<section id="landing">
-			<h1 id="title"></h1>
-			<h4 id="subtitle"></h4>
+			<h1 id="title"><noscript>Toolbox A1: Text Analysis</noscript></h1>
+			<h4 id="subtitle"><noscript>And more</noscript></h4>
 		</section>
 
 		<section id="contents">
@@ -134,41 +140,15 @@ She slipped through the straw and fell in.</textarea><br>
 
 				<button type="reset">RESET</button><br>
 				<button type="button" onclick="doFreqAnalysis('freq', false); document.getElementById('orderByFreq').classList.add('invert');">CALCULATE</button><br>
-        <p id="freqHeadings" class="hidden">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
-				<ul class="striped" id="freqResult"></ul>
+        <p id="freqHeadings" class="resultHeading keepSpacing hidden">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
+				<ul class="striped keepSpacing" id="freqResult"></ul>
 			</form>
       
 			<h4 class="expandTitle">Expected frequencies</h4>
 			<div class="expandContent">
 				<p>Frequency analysis usually only involves the letters of the alphabet (no special characters) and is not case sensitive. The table below shows the results of frequency analysis of a huge sample of English text, which can be compared with the frequencies of a ciphertext to help decrypt the message.</p>
-				<ul class="striped">
-					<li> 1   E   11.2%</li>
-					<li> 2   T   9.36%</li>
-					<li> 3   A   8.50%</li>
-					<li> 4   R   7.59%</li>
-					<li> 5   I   7.55%</li>
-					<li> 6   O   7.51%</li>
-					<li> 7   N   6.75%</li>
-					<li> 8   S   6.33%</li>
-					<li> 9   H   6.09%</li>
-					<li>10   D   4.25%</li>
-					<li>11   L   4.03%</li>
-					<li>12   U   2.76%</li>
-					<li>13   W   2.56%</li>
-					<li>14   M   2.41%</li>
-					<li>15   F   2.23%</li>
-					<li>16   C   2.20%</li>
-					<li>17   G   2.02%</li>
-					<li>18   Y   1.99%</li>
-					<li>19   P   1.93%</li>
-					<li>20   B   1.49%</li>
-					<li>21   K   1.29%</li>
-					<li>22   V   0.978%</li>
-					<li>23   J   0.153%</li>
-					<li>24   X   0.150%</li>
-					<li>25   Q   0.095%</li>
-					<li>26   Z   0.077%</li>
-				</ul>
+				<p id="englishFreqHeadings" class="resultHeading keepSpacing">INDEX  <a onClick="orderEnglishFreq('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton invert" id="englishOrderByChar">CHAR</a>   <a onClick="orderEnglishFreq('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="englishOrderByFreq">FREQ %</a></p>
+				<ul class="striped keepSpacing" id="englishFreq"><li> 0     A      8.50</li><li> 1     B      1.49</li><li> 2     C      2.20</li><li> 3     D      4.25</li><li> 4     E      11.2</li><li> 5     F      2.23</li><li> 6     G      2.02</li><li> 7     H      6.09</li><li> 8     I      7.55</li><li> 9     J      0.153</li><li>10     K      1.29</li><li>11     L      4.03</li><li>12     M      2.41</li><li>13     N      6.75</li><li>14     O      7.51</li><li>15     P      1.93</li><li>16     Q      0.095</li><li>17     R      7.59</li><li>18     S      6.33</li><li>19     T      9.36</li><li>20     U      2.76</li><li>21     V      0.978</li><li>22     W      2.56</li><li>23     X      0.150</li><li>24     Y      1.99</li><li>25     Z      0.077</li></ul>
 				<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Letter_frequency">Wikipedia</a> (rounded to 3 significant figures)</p>
 			</div>
 

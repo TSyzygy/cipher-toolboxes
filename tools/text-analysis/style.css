@@ -1,5 +1,5 @@
 page {
-  min-height: 100%
+  min-height: 100%;
 }
 
 * {
@@ -26,13 +26,13 @@ header li {
 }
 
 header li a {
-  display: block;
+    display: block;
 	text-decoration: none;
 	text-align: center;
-  line-height: 45px;
+    line-height: 45px;
 	padding: 0 18px;
 	color: white;
-  background-color: #003b87;
+    background-color: #003b87;
 	font-family: 'Lexend Deca', sans-serif;
 }
 
@@ -64,10 +64,31 @@ header {
 
 #landing #subtitle {
 	line-height: 1.5;
-  text-align: center;
+    text-align: center;
 	font-family: 'Ubuntu Mono', monospace;
 	color: white;
 	font-weight: 400;
+}
+
+#noscriptAlert {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: #222;
+    color: #FFF;
+    width: 100%;
+}
+
+#noscriptAlert p {
+    padding: 10px;
+}
+
+#noscriptAlert a {
+    color: #c8ddf8;
+}
+
+#noscriptAlert a:hover {
+    color: #004aa8;
 }
 
 section {
@@ -82,7 +103,7 @@ h1 {
 
 h3 {
 	display: inline;
-  line-height: 45px;
+    line-height: 45px;
 	padding-left: 10px;
 	font-family: 'Ubuntu Mono', monospace;
 	color: white;
@@ -129,7 +150,20 @@ h2 {
 p {
 	font-family: 'Inconsolata', monospace;
 	font-size: 15px;
-	padding-bottom: 1vh;
+	padding-bottom: 15px;
+}
+
+p a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p a:hover {
+	color: #003b87;
+}
+
+.keepSpacing {
+    white-space: pre;
 }
 
 #iocLanguages {
@@ -152,15 +186,6 @@ x {
 	padding: 2px;
 }
 
-p a {
-	text-decoration: none;
-	color: inherit;
-}
-
-p a:hover {
-	color: #003b87;
-}
-
 #iocSection form #iocMessage {
 	font-family: 'Ubuntu Mono', monospace;
 	border: 1px solid grey;
@@ -181,16 +206,16 @@ form button {
 	background-color: #004aa8;
 }
 
+form {
+	margin-bottom: 5px;
+}
+
 form button:hover {
 	background-color: #003b87;
 }
 
 form p {
-	padding-bottom: 1px;
-}
-
-form {
-	margin-bottom: 5px;
+    padding-bottom: 0;
 }
 
 label  {
@@ -206,13 +231,13 @@ input[readonly] {
     color: #777
 }
 
-p#freqHeadings {
+p.resultHeading {
     margin-top: 3px;
-    white-space: pre-wrap;
     color: grey;
+    padding-bottom: 1px;
 }
 
-p#freqHeadings.hidden {
+p.resultHeading.hidden {
     display: none;
 }
 
@@ -277,7 +302,6 @@ a.anchor {
 ul.striped li {
 	font-family: 'Inconsolata', monospace;
 	font-size: 15px;
-	white-space: pre-wrap;
 	margin: 0 -18px;
 	padding: 0 18px;
 }

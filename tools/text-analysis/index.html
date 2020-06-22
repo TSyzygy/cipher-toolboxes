@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
 		<meta charset="utf-8">
@@ -56,12 +56,12 @@ Have all built their nests in my beard!"</textarea>
 			<h4 class="expandTitle">What is the Index of Coincidence?</h4>
       <div class="expandContent">
         <p>The index of coincidence of a text is the probability of two randomly drawn letters from that text being the same. A higher IOC means that this probability is higher, which occurs when some letters appear much more often than others. On the other hand, a 'flatter' set of letter frequencies would lead to a lower IOC.</p>
-        <p>The index of coincidence can be used as a simple way of comparing two texts. For cryptography it is often used to see how likely a given text is to be in a certain language, by comparing the text's IOC to the language's average IOC (see below). It can also be used to predict what type of cipher a text is encrypted with, since some ciphers, such as simple substitution ciphers, do not change a text's IOC at all, while more complex ciphers such as the vignere will reduce the IOC significantly, since they 'flatten' the letter frequencies.</p>
+        <p>It can be used as a simple way of comparing two texts. For cryptography it can tell you how likely a given text is to be in a certain language, by comparing the text's IOC to the language's average IOC (see below). It can also be used to predict what type of cipher a text is encrypted with, since some ciphers, such as simple substitution ciphers, do not change a text's IOC at all, while more complex ciphers such as the vignere will reduce the IOC significantly, since they 'flatten' the letter frequencies.</p>
       </div>
 
 			<h4 class="expandTitle">IOC for different languages</h4>
       <div class="expandContent">
-        <p>Different languages, of course, have different IOCs - here are a few:</p>
+        <p>Different languages, of course, have different expected/average IOCs - here are a few:</p>
         <ul id="iocLanguages">
           <li>English:   1.73</li>
           <li>French:    2.02</li>
@@ -71,7 +71,8 @@ Have all built their nests in my beard!"</textarea>
           <li>Russian:   1.76</li>
           <li>Spanish:   1.94</li>
         </ul>
-        <p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Index_of_coincidence">Wikipedia</a></p>
+				<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Index_of_coincidence">Wikipedia</a></p>
+				<p>Generally, if the IOC of a ciphertext is within 0.1 of the expected IOC of the plaintext language, the encryption method is likely to be monoalphabetic.</p>
       </div>
 
 			<h4 class="expandTitle">Example use of the Index of Coincidence</h4>
@@ -81,8 +82,8 @@ Have all built their nests in my beard!"</textarea>
         <p class="quote">I have a dream that one day on the red hills of Georgia, the sons of former slaves and the sons of former slave owners will be able to sit down together at the table of brotherhood.</p>
         <p class="quote">I have a dream that one day even the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the heat of oppression, will be transformed into an oasis of freedom and justice.</p>
         <p class="quote">I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.</p>
-        <p>If you copy that text into the index of coindidence calculator above, you will find that it has an index of coincidence of 1.8442, which is noticably higher than expected for English plaintext. Why? Presumably because of all of the repetitions of 'I have a dream'! Now let's compare that to when it is encrypted with a substitution and vigenere cipher. We'll use the key <x>MLK</x> for both.</p>
-        <p>With a monoalphabetic substitution cipher (alphabet <x>MLKABCDEFGHIJNOPQRSTUVWXYZ</x> - woah, just noticed that MLK's initials are in reverse alphabetical order!), we get the following ciphertext:</p>
+        <p>If you copy that text into the index of coincidence calculator above, you will find that it has an index of coincidence of 1.8442, which is noticably higher than expected for English plaintext. Why? Presumably because of all of the repetitions of 'I have a dream'! Now let's compare that to when it is encrypted with a substitution and vigenere cipher. We'll use the key <x>MLK</x> for both.</p>
+        <p>With a monoalphabetic substitution cipher (alphabet <x>MLKABCDEFGHIJNOPQRSTUVWXYZ</x>), we get the following ciphertext:</p>
         <p style="font-family: 'Ubuntu Mono', monospace;">F EMVB M ARBMJ TEMT ONB AMY TEFS NMTFON WFII RFSB UP MNA IFVB OUT TEB TRUB JBMNFND OC FTS KRBBA: "WB EOIA TEBSB TRUTES TO LB SBIC-BVFABNT, TEMT MII JBN MRB KRBMTBA BQUMI."
 F EMVB M ARBMJ TEMT ONB AMY ON TEB RBA EFIIS OC DBORDFM, TEB SONS OC CORJBR SIMVBS MNA TEB SONS OC CORJBR SIMVB OWNBRS WFII LB MLIB TO SFT AOWN TODBTEBR MT TEB TMLIB OC LROTEBREOOA.
 F EMVB M ARBMJ TEMT ONB AMY BVBN TEB STMTB OC JFSSFSSFPPF, M STMTB SWBITBRFND WFTE TEB EBMT OC FNGUSTFKB, SWBITBRFND WFTE TEB EBMT OC OPPRBSSFON, WFII LB TRMNSCORJBA FNTO MN OMSFS OC CRBBAOJ MNA GUSTFKB.
@@ -134,12 +135,41 @@ She slipped through the straw and fell in.</textarea><br>
 				<button type="reset" onclick="document.getElementById('orderByFreq').classList.remove('invert'); document.getElementById('orderByChar').classList.remove('invert');">RESET</button><br>
 				<button type="button" onclick="doFreqAnalysis('freq', false); document.getElementById('orderByFreq').classList.add('invert');">CALCULATE</button><br>
         <p style="margin-top: 3px; white-space: pre-wrap; color: grey;">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
-				<ul id="freqResult"></ul>
+				<ul class="striped" id="freqResult"></ul>
 			</form>
       
     <h4 class="expandTitle">Expected frequencies</h4>
     <div class="expandContent">
-
+			<p>Frequency analysis usually only involves the letters of the alphabet (no special characters) and is not case sensitive. The table below shows the results of frequency analysis of a huge sample of English text, which can be compared with the frequencies of a ciphertext to help decrypt the message.</p>
+			<ul class="striped">
+				<li>E 11.2%</li>
+				<li>T 9.36%</li>
+				<li>A 8.50%</li>
+				<li>R 7.59%</li>
+				<li>I 7.55%</li>
+				<li>O 7.51%</li>
+				<li>N 6.75%</li>
+				<li>S 6.33%</li>
+				<li>H 6.09%</li>
+				<li>D 4.25%</li>
+				<li>L 4.03%</li>
+				<li>U 2.76%</li>
+				<li>W 2.56%</li>
+				<li>M 2.41%</li>
+				<li>F 2.23%</li>
+				<li>C 2.20%</li>
+				<li>G 2.02%</li>
+				<li>Y 1.99%</li>
+				<li>P 1.93%</li>
+				<li>B 1.49%</li>
+				<li>K 1.29%</li>
+				<li>V 0.978%</li>
+				<li>J 0.153%</li>
+				<li>X 0.150%</li>
+				<li>Q 0.095%</li>
+				<li>Z 0.077%</li>
+			</ul>
+			<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Letter_frequency">Wikipedia</a> (rounded to 3 significant figures)</p>
     </div>
 
 		</section>

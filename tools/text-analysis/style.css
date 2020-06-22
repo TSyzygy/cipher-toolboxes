@@ -206,6 +206,16 @@ input[readonly] {
     color: #777
 }
 
+p#freqHeadings {
+    margin-top: 3px;
+    white-space: pre-wrap;
+    color: grey;
+}
+
+p#freqHeadings.hidden {
+    display: none;
+}
+
 a.anchor {
     display: block;
     position: relative;

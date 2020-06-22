@@ -112,10 +112,11 @@ function updateToAnalyse() {
 }
 
 function resetFreqForm() {
-	// Hides the ngrams bit
-	document.getElementById("forNGrams").style.display = "none";
-	// Clears the previous result
-	document.getElementById("freqResult").innerHTML = ""; 
+	document.getElementById("forNGrams").style.display = "none"; // Hides the ngrams bit
+	document.getElementById("freqResult").innerHTML = ""; // Clears the previous result
+	document.getElementById("orderByFreq").classList.remove("invert"); // Resets the byFreq and byChar ordering buttons
+	document.getElementById("orderByChar").classList.remove("invert");
+	document.getElementById("freqHeadings").classList.add("hidden"); // Hides the frequency analysis headings
 }
 
 // Does the raw frequency analysis
@@ -214,6 +215,7 @@ function fillFreqResults(result, order, invert) {
 	var n = Math.max(Object.keys(ordered));
 	var sum = ordered.map(x => x[1]).reduce((a,b) => Number(a) + Number(b), 0)
 
+    document.getElementById("freqHeadings").classList.remove("hidden"); // Ensures headings are shown
 	document.getElementById("freqResult").innerHTML = ""; // Clears previous results
 	for (i = 0; i < ordered.length; i++) {
 		var node = document.createElement("LI"); // Create a <li> node

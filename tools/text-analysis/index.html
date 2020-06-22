@@ -132,45 +132,45 @@ She slipped through the straw and fell in.</textarea><br>
 					<input type="radio" name="ngramType" value="blocks" id="blocks"><label for="blocks"> Blocks </label><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
 				</div>
 
-				<button type="reset" onclick="document.getElementById('orderByFreq').classList.remove('invert'); document.getElementById('orderByChar').classList.remove('invert');">RESET</button><br>
+				<button type="reset">RESET</button><br>
 				<button type="button" onclick="doFreqAnalysis('freq', false); document.getElementById('orderByFreq').classList.add('invert');">CALCULATE</button><br>
-        <p style="margin-top: 3px; white-space: pre-wrap; color: grey;">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
+        <p id="freqHeadings" class="hidden">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
 				<ul class="striped" id="freqResult"></ul>
 			</form>
       
-    <h4 class="expandTitle">Expected frequencies</h4>
-    <div class="expandContent">
-			<p>Frequency analysis usually only involves the letters of the alphabet (no special characters) and is not case sensitive. The table below shows the results of frequency analysis of a huge sample of English text, which can be compared with the frequencies of a ciphertext to help decrypt the message.</p>
-			<ul class="striped">
-				<li> 1   E   11.2%</li>
-				<li> 2   T   9.36%</li>
-				<li> 3   A   8.50%</li>
-				<li> 4   R   7.59%</li>
-				<li> 5   I   7.55%</li>
-				<li> 6   O   7.51%</li>
-				<li> 7   N   6.75%</li>
-				<li> 8   S   6.33%</li>
-				<li> 9   H   6.09%</li>
-				<li>10   D   4.25%</li>
-				<li>11   L   4.03%</li>
-				<li>12   U   2.76%</li>
-				<li>13   W   2.56%</li>
-				<li>14   M   2.41%</li>
-				<li>15   F   2.23%</li>
-				<li>16   C   2.20%</li>
-				<li>17   G   2.02%</li>
-				<li>18   Y   1.99%</li>
-				<li>19   P   1.93%</li>
-				<li>20   B   1.49%</li>
-				<li>21   K   1.29%</li>
-				<li>22   V   0.978%</li>
-				<li>23   J   0.153%</li>
-				<li>24   X   0.150%</li>
-				<li>25   Q   0.095%</li>
-				<li>26   Z   0.077%</li>
-			</ul>
-			<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Letter_frequency">Wikipedia</a> (rounded to 3 significant figures)</p>
-    </div>
+			<h4 class="expandTitle">Expected frequencies</h4>
+			<div class="expandContent">
+				<p>Frequency analysis usually only involves the letters of the alphabet (no special characters) and is not case sensitive. The table below shows the results of frequency analysis of a huge sample of English text, which can be compared with the frequencies of a ciphertext to help decrypt the message.</p>
+				<ul class="striped">
+					<li> 1   E   11.2%</li>
+					<li> 2   T   9.36%</li>
+					<li> 3   A   8.50%</li>
+					<li> 4   R   7.59%</li>
+					<li> 5   I   7.55%</li>
+					<li> 6   O   7.51%</li>
+					<li> 7   N   6.75%</li>
+					<li> 8   S   6.33%</li>
+					<li> 9   H   6.09%</li>
+					<li>10   D   4.25%</li>
+					<li>11   L   4.03%</li>
+					<li>12   U   2.76%</li>
+					<li>13   W   2.56%</li>
+					<li>14   M   2.41%</li>
+					<li>15   F   2.23%</li>
+					<li>16   C   2.20%</li>
+					<li>17   G   2.02%</li>
+					<li>18   Y   1.99%</li>
+					<li>19   P   1.93%</li>
+					<li>20   B   1.49%</li>
+					<li>21   K   1.29%</li>
+					<li>22   V   0.978%</li>
+					<li>23   J   0.153%</li>
+					<li>24   X   0.150%</li>
+					<li>25   Q   0.095%</li>
+					<li>26   Z   0.077%</li>
+				</ul>
+				<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Letter_frequency">Wikipedia</a> (rounded to 3 significant figures)</p>
+			</div>
 
 		</section>
 

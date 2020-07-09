@@ -1,71 +1,72 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>Text Analysis Tools - Cipher Toolboxes</title>
-		<link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Text Analysis Tools - Cipher Toolboxes</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lexend+Deca|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
     <script src="script.js"></script>
 
-		<noscript>
-			<div id="noscriptAlert">
-				<p>You don't have <em>javascript</em> enabled for this webpage. All of the tools on this website require javascript to function, so we recommend that you <a href="https://www.enable-javascript.com">turn it on.</a></p>
-			</div>
-		</noscript>
+    <noscript>
+      <div id="noscriptAlert">
+        <p>You don't have <em>javascript</em> enabled for this webpage. All of the tools on this website require javascript to function, so we recommend that you <a href="https://www.enable-javascript.com">turn it on.</a></p>
+      </div>
+    </noscript>
 
-		<header>
-			<h3><a href="">CIPHER TOOLBOXES</a></h3>
-			<ul>
-				<li><a href="">ABOUT</a></li>
-				<li><a href="">COOL STUFF</a></li>
-				<li><a href="">CIPHERS</a></li>
-				<li><a href="">TOOLS</a></li>
-			</ul>
-		</header>
+    <header>
+      <h3><a href="">CIPHER TOOLBOXES</a></h3>
+      <ul>
+        <li><a href="">ABOUT</a></li>
+        <li><a href="">COOL STUFF</a></li>
+        <li><a href="">CIPHERS</a></li>
+        <li><a href="">TOOLS</a></li>
+      </ul>
+    </header>
 
-		<section id="landing">
-			<h1 id="title"><noscript>Toolbox A1: Text Analysis</noscript></h1>
-			<h4 id="subtitle"><noscript>And more</noscript></h4>
-		</section>
+    <section id="landing">
+      <h1 id="title"><noscript>Toolbox A1: Text Analysis</noscript></h1>
+      <h4 id="subtitle"><noscript>And more</noscript></h4>
+    </section>
 
-		<section id="contents">
-			<h2>TOOLS LIST</h2>
-			<ul class="contentsList">
-				<li><a href="#ioc">Index of Coincidence Calculator</a></li>
-				<li><a href="#frequency-analysis">Frequency Analysis</a></li>
-				<li><a href="#cipher-detector">Cipher Detector</a></li>
-			</ul>
-		</section>
+    <section id="contents">
+      <h2>TOOLS LIST</h2>
+      <ul class="contentsList">
+        <li><a href="#ioc">Index of Coincidence Calculator</a></li>
+        <li><a href="#frequency-analysis">Frequency Analysis</a></li>
+        <li><a href="#cipher-detector">Cipher Detector</a></li>
+      </ul>
+    </section>
 
-		<section id="iocSection">
-			<a class="anchor" id="ioc"></a>
-			<h2>INDEX OF COINCIDENCE CALCULATOR</h2>
+    <section id="iocSection">
+      <a class="anchor" id="ioc"></a>
+      <h2>INDEX OF COINCIDENCE CALCULATOR</h2>
 
-			<form autocomplete="off" id="iocForm">
-				<p>Message:</p>
-				<textarea name="message" rows="10" cols="40" id="iocMessage">There was an Old Man with a beard
+      <form autocomplete="off" id="iocForm">
+        <p>Message:</p>
+        <textarea name="message" rows="10" cols="40" id="iocMessage">There was an Old Man with a beard
 Who said, "It is just as I feared!
 Two Owls and a Hen,
 Four Larks and a Wren,
 Have all built their nests in my beard!"</textarea>
-				<p>Alphabet:</p>
-				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="30" id="iocAlphabet"><br>
+        <p>Alphabet:</p>
+        <input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="30" id="iocAlphabet"><br>
         <input type="checkbox" id="iocCaseSensitive"><label for="iocCaseSensitive"> Case sensitive? <i style="letter-spacing: -1px">(no for ordinary IOC)</i></label><br>
-				<button type="reset">RESET</button><br>
-				<button type="button" onclick="calculateIOC()">CALCULATE</button><br>
-				<p style="margin-top: 3px;">Result: <span id="iocResult"></span></p>
-			</form>
+        <button type="reset">RESET</button><br>
+        <button type="button" onclick="calculateIOC()">CALCULATE</button><br>
+        <p style="margin-top: 3px;">Result: <span id="iocResult"></span></p>
+      </form>
 
-			<h4 class="expandTitle">What is the Index of Coincidence?</h4>
+      <h4 class="expandTitle">What is the Index of Coincidence?</h4>
       <div class="expandContent">
         <p>The index of coincidence of a text is the probability of two randomly drawn letters from that text being the same. A higher IOC means that this probability is higher, which occurs when some letters appear much more often than others. On the other hand, a 'flatter' set of letter frequencies would lead to a lower IOC.</p>
         <p>It can be used as a simple way of comparing two texts. For cryptography it can tell you how likely a given text is to be in a certain language, by comparing the text's IOC to the language's average IOC (see below). It can also be used to predict what type of cipher a text is encrypted with, since some ciphers, such as simple substitution ciphers, do not change a text's IOC at all, while more complex ciphers such as the vignere will reduce the IOC significantly, since they 'flatten' the letter frequencies.</p>
       </div>
 
-			<h4 class="expandTitle">IOC for different languages</h4>
+      <h4 class="expandTitle">IOC for different languages</h4>
       <div class="expandContent">
         <p>Different languages, of course, have different expected/average IOCs - here are a few:</p>
         <ul id="iocLanguages">
@@ -77,11 +78,11 @@ Have all built their nests in my beard!"</textarea>
           <li>Russian:   1.76</li>
           <li>Spanish:   1.94</li>
         </ul>
-				<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Index_of_coincidence">Wikipedia</a></p>
-				<p>Generally, if the IOC of a ciphertext is within 0.1 of the expected IOC of the plaintext language, the encryption method is likely to be monoalphabetic.</p>
+        <p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Index_of_coincidence">Wikipedia</a></p>
+        <p>Generally, if the IOC of a ciphertext is within 0.1 of the expected IOC of the plaintext language, the encryption method is likely to be monoalphabetic.</p>
       </div>
 
-			<h4 class="expandTitle">Example use of the Index of Coincidence</h4>
+      <h4 class="expandTitle">Example use of the Index of Coincidence</h4>
       <div class="expandContent">
         <p>For this example, we will use a part of Martin Luther King's 'I have a dream' speech:</p>
         <p class="quote">I have a dream that one day this nation will rise up and live out the true meaning of its creed: "We hold these truths to be self-evident, that all men are created equal."</p>
@@ -100,59 +101,58 @@ F EMVB M ARBMJ TEMT JY COUR IFTTIB KEFIARBN WFII ONB AMY IFVB FN M NMTFON WEBRB 
 U SKHP K PCOMX DTLD AYO PLI AY DTP BQO RUWVE ZP SPYDRSM, ERQ DYZD YR QYDXOD DVMGOE LXP ERQ DYZD YR QYDXOD DVMGO AHXQCC ITVX MO MMVQ EY ETD PZGZ EYSPDTPB ME DTP DMMVQ ZP NCYFSODSYAO.
 S TLFQ L NDPKY ERME YZP NMJ OHPX FSO EEKFP YR XSEDSEDSBAS, M DDMEO EHOXEODTXS HSFS DTP RQLD AQ SZUEEESOP, CIPVFPBUYQ ITDT ERQ SOME YR ZZBCOEDSAY, GUWV NP DDLXEQYDXOP TXFZ KZ ZKETC AQ PDPOPZW MYN VFCFTMQ.
 T RMGO M OBQLW FSKF XI RZED WSFEVQ NRUWNDPX ITVX ZXQ OKK WSHP SZ L XMESAY GTPBQ ERQJ GUWV ZZD NP TGOQQO LK ERQ NYXZB AQ DTPSD DUUY LGE LK ERQ NYZEOZE YR ERQTB OSKDLMFPB.</p>
-        <p>The IOC for that ciphertext is 1.2681 - much lower than the original. This is because the vignere is a much more effective cipher which 'scrambles' all the letters far more, thus making it much more random and flattened. Since the characters have more 
-        even frequencies, the chance of picking two the same is lower, and thus so is the IOC.</p>
+        <p>The IOC for that ciphertext is 1.2681 - much lower than the original. This is because the vignere is a much more effective cipher which 'scrambles' all the letters far more, thus making it much more random and flattened. Since the characters have more even frequencies, the chance of picking two the same is lower, and thus so is the IOC.</p>
       </div>
-		</section>
+    </section>
 
-		<section id="freqSection">
-			<a class="anchor" id="frequency-analysis"></a>
-			<h2>FREQUENCY ANALYSIS</h2>
+    <section id="freqSection">
+      <a class="anchor" id="frequency-analysis"></a>
+      <h2>FREQUENCY ANALYSIS</h2>
 
-			<form autocomplete="off" id="freqForm" onreset="resetFreqForm()">
-				<p>Message:</p>
-				<textarea name="message" rows="10" cols="40" id="freqMessage">There was a young lady of Lynn,
+      <form autocomplete="off" id="freqForm" onreset="resetFreqForm()">
+        <p>Message:</p>
+        <textarea name="message" rows="10" cols="40" id="freqMessage">There was a young lady of Lynn,
 Who was so uncommonly thin
 That when she essayed
 To drink lemonade
 She slipped through the straw and fell in.</textarea><br>
 
-				<p>Alphabet:</p>
+        <p>Alphabet:</p>
 
-				<input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="40" id="freqAlphabet" readonly><br>
+        <input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" size="40" id="freqAlphabet" readonly><br>
 
-				<input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><label for="freqCaseSensitive"> Case Sensitive?</label><br>
+        <input type="checkbox" id="freqCaseSensitive" onchange="updateFreqAlphabet()"><label for="freqCaseSensitive"> Case Sensitive?</label><br>
 
-				<input type="radio" name="alphabet" value="letters" id="letters" onchange="updateFreqAlphabet()" checked><label for="letters"> A-Z</label><br>
-				<input type="radio" name="alphabet" value="lettersAndNumbers" id="lettersAndNumbers" onchange="updateFreqAlphabet()"><label for="lettersAndNumbers"> A-Z and 0-9</label><br>
-				<input type="radio" name="alphabet" value="allChars" id="allChars" onchange="updateFreqAlphabet()"><label for="allChars"> All characters in message</label><br>
-				<input type="radio" name="alphabet" value="custom" id="custom" onchange="updateFreqAlphabet()"><label for="custom"> Custom</label><br>
+        <input type="radio" name="alphabet" value="letters" id="letters" onchange="updateFreqAlphabet()" checked><label for="letters"> A-Z</label><br>
+        <input type="radio" name="alphabet" value="lettersAndNumbers" id="lettersAndNumbers" onchange="updateFreqAlphabet()"><label for="lettersAndNumbers"> A-Z and 0-9</label><br>
+        <input type="radio" name="alphabet" value="allChars" id="allChars" onchange="updateFreqAlphabet()"><label for="allChars"> All characters in message</label><br>
+        <input type="radio" name="alphabet" value="custom" id="custom" onchange="updateFreqAlphabet()"><label for="custom"> Custom</label><br>
 
-				<p style="margin-top: 5px;">To analyse:</p>
-				<input type="radio" name="toAnalyse" value="chars" id="chars" onchange="updateToAnalyse()" checked><label for="chars"> Individual Characters</label><br>
-				<input type="radio" name="toAnalyse" value="ngrams" id="ngrams" onchange="updateToAnalyse()"><label for="ngrams"> N-grams</label><br>
-				
-				<div id="forNGrams" style="display: none;">
-					<label for="n"> N: </label><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
-					<input type="radio" name="ngramType" value="sliding" id="sliding" checked><label for="sliding"> Sliding Window </label><span class="tooltip">?<span class="tooltiptext" style="width: 200px;">(ABCDEF → AB,BC,CD,DE,EF)</span></span><br>
-					<input type="radio" name="ngramType" value="blocks" id="blocks"><label for="blocks"> Blocks </label><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
-				</div>
+        <p style="margin-top: 5px;">To analyse:</p>
+        <input type="radio" name="toAnalyse" value="chars" id="chars" onchange="updateToAnalyse()" checked><label for="chars"> Individual Characters</label><br>
+        <input type="radio" name="toAnalyse" value="ngrams" id="ngrams" onchange="updateToAnalyse()"><label for="ngrams"> N-grams</label><br>
 
-				<button type="reset">RESET</button><br>
-				<button type="button" onclick="doFreqAnalysis('freq', false); document.getElementById('orderByFreq').classList.add('invert');">CALCULATE</button><br>
+        <div id="forNGrams" style="display: none;">
+          <label for="n"> N: </label><input type="number" value="2" min="2" max="6" size="1" id="n"><br>
+          <input type="radio" name="ngramType" value="sliding" id="sliding" checked><label for="sliding"> Sliding Window </label><span class="tooltip">?<span class="tooltiptext" style="width: 200px;">(ABCDEF → AB,BC,CD,DE,EF)</span></span><br>
+          <input type="radio" name="ngramType" value="blocks" id="blocks"><label for="blocks"> Blocks </label><span class="tooltip">?<span class="tooltiptext" style="width: 160px;">(ABCDEF → AB,CD,EF)</span></span><br>
+        </div>
+
+        <button type="reset">RESET</button><br>
+        <button type="button" onclick="doFreqAnalysis('freq', false); document.getElementById('orderByFreq').classList.add('invert');">CALCULATE</button><br>
         <p id="freqHeadings" class="resultHeading keepSpacing hidden">INDEX  <a onClick="doFreqAnalysis('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByChar">CHAR</a>   <a onClick="doFreqAnalysis('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="orderByFreq">FREQ</a>   %</p>
-				<ul class="striped keepSpacing" id="freqResult"></ul>
-			</form>
-      
-			<h4 class="expandTitle">Expected frequencies</h4>
-			<div class="expandContent">
-				<p>Frequency analysis usually only involves the letters of the alphabet (no special characters) and is not case sensitive. The table below shows the results of frequency analysis of a huge sample of English text, which can be compared with the frequencies of a ciphertext to help decrypt the message.</p>
-				<p id="englishFreqHeadings" class="resultHeading keepSpacing">INDEX  <a onClick="orderEnglishFreq('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton invert" id="englishOrderByChar">CHAR</a>   <a onClick="orderEnglishFreq('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="englishOrderByFreq">FREQ %</a></p>
-				<ul class="striped keepSpacing" id="englishFreq"><li> 0     A      8.50</li><li> 1     B      1.49</li><li> 2     C      2.20</li><li> 3     D      4.25</li><li> 4     E      11.2</li><li> 5     F      2.23</li><li> 6     G      2.02</li><li> 7     H      6.09</li><li> 8     I      7.55</li><li> 9     J      0.153</li><li>10     K      1.29</li><li>11     L      4.03</li><li>12     M      2.41</li><li>13     N      6.75</li><li>14     O      7.51</li><li>15     P      1.93</li><li>16     Q      0.095</li><li>17     R      7.59</li><li>18     S      6.33</li><li>19     T      9.36</li><li>20     U      2.76</li><li>21     V      0.978</li><li>22     W      2.56</li><li>23     X      0.150</li><li>24     Y      1.99</li><li>25     Z      0.077</li></ul>
-				<p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Letter_frequency">Wikipedia</a> (rounded to 3 significant figures)</p>
-			</div>
+        <ul class="striped keepSpacing" id="freqResult"></ul>
+      </form>
 
-		</section>
+      <h4 class="expandTitle">Expected frequencies</h4>
+      <div class="expandContent">
+        <p>Frequency analysis usually only involves the letters of the alphabet (no special characters) and is not case sensitive. The table below shows the results of frequency analysis of a huge sample of English text, which can be compared with the frequencies of a ciphertext to help decrypt the message.</p>
+        <p id="englishFreqHeadings" class="resultHeading keepSpacing">INDEX  <a onClick="orderEnglishFreq('char', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton invert" id="englishOrderByChar">CHAR</a>   <a onClick="orderEnglishFreq('freq', this.classList.contains('invert')); this.classList.toggle('invert');" class="orderButton" id="englishOrderByFreq">FREQ %</a></p>
+        <ul class="striped keepSpacing" id="englishFreq"><li> 0     A      8.50</li><li> 1     B      1.49</li><li> 2     C      2.20</li><li> 3     D      4.25</li><li> 4     E      11.2</li><li> 5     F      2.23</li><li> 6     G      2.02</li><li> 7     H      6.09</li><li> 8     I      7.55</li><li> 9     J      0.153</li><li>10     K      1.29</li><li>11     L      4.03</li><li>12     M      2.41</li><li>13     N      6.75</li><li>14     O      7.51</li><li>15     P      1.93</li><li>16     Q      0.095</li><li>17     R      7.59</li><li>18     S      6.33</li><li>19     T      9.36</li><li>20     U      2.76</li><li>21     V      0.978</li><li>22     W      2.56</li><li>23     X      0.150</li><li>24     Y      1.99</li><li>25     Z      0.077</li></ul>
+        <p style="font-size: 10px">Source: <a href="https://en.wikipedia.org/wiki/Letter_frequency">Wikipedia</a> (rounded to 3 significant figures)</p>
+      </div>
+
+    </section>
 
   </body>
 </html>

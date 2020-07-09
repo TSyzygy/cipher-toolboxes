@@ -1,57 +1,3 @@
-dataText = [
-  ["title", "Toolbox A1: Text Analysis"],
-  ["subtitle", "Index of coincidence"], 
-  ["subtitle", "Frequency analysis"], 
-  ["subtitle", "Ngram analysis"],
-  ["subtitle", "And more"]
-]
-
-function typeWriter(text, i, id, fnCallback) {
-  if (i < (text.length)) {
-    document.getElementById(id).innerHTML = text.substring(0, i) + '_';
-    setTimeout(function () {
-      typeWriter(text, i + 1, id, fnCallback)
-    }, 60);
-  }
-  else if (i = text.length) {
-    document.getElementById(id).innerHTML = text.substring(0, i);
-    setTimeout(fnCallback, 700);
-  }
-}
-
-function startTextAnimation(i) {
-  // check if dataText[i] exists
-  if (i < dataText.length) {
-    // text exists! start typewriter animation
-    typeWriter(dataText[i][1], 0, dataText[i][0], function(){
-      // after callback (and whole text has been animated), start next text
-      startTextAnimation(i + 1);
-    });
-  }
-}
-
-
-// Sets up the expandable info boxes
-function setupExpandInfo() {
-  var expandTitles = document.getElementsByClassName('expandTitle');
-  var expandContents = document.getElementsByClassName('expandContent');
-
-  for (i = 0; i < expandTitles.length; i++) {
-    var t = expandTitles[i];
-    var c = expandContents[i];
-    t.dataset.expandId = i;
-    t.addEventListener('click', function () {
-      console.log(this.getAttribute('data-expand-id'))
-      document.getElementById('ec' + String(this.getAttribute('data-expand-id'))).classList.toggle('hidden');
-      this.classList.toggle('hidden');
-    });
-    t.classList.add("hidden")
-    c.setAttribute("id", "ec" + String(i))
-    c.classList.add("hidden")
-  }
-}
-
-
 // Calculates the IOC and returns result to user
 function calculateIOC() {
 	var text = document.getElementById("iocMessage").value;
@@ -260,8 +206,16 @@ function orderEnglishFreq(order, invert) {
 	fillResults(englishFreq, order, invert, "englishFreq", function (i, d) {return padAfter(padBefore(i, String(d.length).length), 7) + padAfter(d[i][0], 7) + d[i][1]})
 }
 
-// runs on page load
+// Runs on page load
 document.addEventListener("DOMContentLoaded", function (event) {
+  dataText = [
+    ["title", "Toolbox A1: Text Analysis"],
+    ["subtitle", "Index of coincidence"],
+    ["subtitle", "Frequency analysis"],
+    ["subtitle", "Ngram analysis"],
+    ["subtitle", "And more"]
+  ]
+
   startTextAnimation(0);
   setupExpandInfo();
 })

@@ -1,1 +1,49 @@
+<!DOCTYPE html>
 
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Text Analysis Tools - Cipher Toolboxes</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/generalStyle.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lexend+Deca|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <script src="../../assets/animations.js"></script>
+  <script src="script.js"></script>
+  <script src="evolution.js"></script>
+
+  <noscript>
+    <div id="noscriptAlert">
+      <p>You don't have <em>javascript</em> enabled for this webpage. All of the tools on this website require javascript to function, so we recommend that you <a href="https://www.enable-javascript.com">turn it on.</a></p>
+    </div>
+  </noscript>
+
+  <header>
+    <h3><a href="">CIPHER TOOLBOXES</a></h3>
+    <ul>
+      <li><a href="">ABOUT</a></li>
+      <li><a href="">COOL STUFF</a></li>
+      <li><a href="">CIPHERS</a></li>
+      <li><a href="">TOOLS</a></li>
+    </ul>
+  </header>
+
+  <section id="landing">
+    <h1 id="title"><noscript>Toolbox A3: Evolution Algorithm</noscript></h1>
+    <h4 id="subtitle"><noscript>Simulates natural selection to solve ciphers</noscript></h4>
+  </section>
+
+  <section id="iocSection">
+    <a class="anchor" id="ioc"></a>
+    <h2>EVOLUTION ALGORITHM</h2>
+    <form autocomplete="off" id="evolutionForm">
+      <p>Message:</p>
+      <textarea name="message" rows="15" cols="80" id="evolutionMessage"></textarea>
+      <p>Alphabet:</p>
+      <button type="button" onclick="startEvolution()">START</button>
+      <button type="button" onclick="stopEvolution()" disabled>STOP</button><br>
+      <p style="margin-top: 3px;">Result: <span id="iocResult"></span></p>
+    </form>
+  </section>

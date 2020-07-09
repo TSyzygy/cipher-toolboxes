@@ -1,16 +1,22 @@
+:root {
+  --main-col-dark: #003b87;
+  --main-col: #004aa8;
+  --main-col-light: #c8ddf8
+}
+
 page {
   min-height: 100%;
 }
 
 * {
-	margin: 0;
-	border: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #headerLogo {
-	height: 5vh;
+    height: 5vh;
 }
 
 header ul {
@@ -101,6 +107,14 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+	font-family: 'Lexend Deca', sans-serif;
+	color: #003b87;
+	font-size: 24px;
+	padding: 2vh 0;
+	margin: 0;
+}
+
 h3 {
 	display: inline;
     line-height: 45px;
@@ -123,13 +137,6 @@ h4 {
   margin-bottom: 5px;
 }
 
-h2 {
-	font-family: 'Lexend Deca', sans-serif;
-	color: #003b87;
-	font-size: 24px;
-	padding: 2vh 0;
-	margin: 0;
-}
 
 .contentsList {
 	font-family: 'Inconsolata', monospace;
@@ -162,73 +169,121 @@ p a:hover {
 	color: #003b87;
 }
 
+a.anchor {
+    display: block;
+    position: relative;
+    top: -5vh;
+    visibility: hidden;
+}
+
 .keepSpacing {
     white-space: pre;
 }
 
-#iocLanguages {
+x {
+	display: inline;
+	font-family: 'Ubuntu Mono', monospace;
+	color: white;
+	background-color: grey;
+	padding: 2px;
+}
+
+
+/* Forms */
+
+form button {
+	padding: 3px;
+	margin-top: 5px;
+	font-family: 'Lexend Deca', sans-serif;
+	color: white;
+	background-color: #004aa8;
+}
+
+form {
+	margin-bottom: 5px;
+}
+
+form button:hover {
+	background-color: #003b87;
+}
+
+form p {
+    padding-bottom: 0;
+}
+
+label  {
 	font-family: 'Inconsolata', monospace;
 	font-size: 15px;
-	list-style-type: none;
 }
 
-.quote {
-	font-size: 12px;
-	font-family: Georgia, 'Times New Roman', Times, serif;
-	margin: 0 18px;
+input:focus {
+    outline: none;
 }
 
-#iocSection form #iocMessage {
+input[readonly] {
+    color: #777
+}
+
+textarea {
 	font-family: 'Ubuntu Mono', monospace;
 	border: 1px solid grey;
 	padding: 2px;
 }
 
-#iocSection form #iocAlphabet {
+
+/* Tooltip container */
+.tooltip {
 	font-family: 'Ubuntu Mono', monospace;
-	border: 1px solid grey;
-	padding: 2px;
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
-p.resultHeading {
-    margin-top: 3px;
-    color: grey;
-    padding-bottom: 1px;
-}
-
-p.resultHeading.hidden {
-    display: none;
-}
-
-#freqSection form #n {
+/* Tooltip text */
+.tooltip .tooltiptext {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 15px;
+	visibility: hidden;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 2px 0;
+	margin-left: 5px;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	top: -2px;
+    left: 105%;
 }
 
-#forNGrams {
-	margin-left: 10px;
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  	visibility: visible;
 }
 
-ul.striped li {
-	font-family: 'Inconsolata', monospace;
-	font-size: 15px;
-	margin: 0 -18px;
-	padding: 0 18px;
+
+/* Expandable info boxes */
+
+h4.expandTitle:hover {
+  color: #003b87;
+  cursor: n-resize;
 }
 
-ul.striped li:nth-child(odd) {
-	background: #c8ddf8;
+h4.expandTitle.hidden:hover {
+  cursor: s-resize;
 }
 
-ul {
-	list-style-type: none;
+h4.expandTitle::after{
+  content: " \25BE";
+  font-size: 10px;
 }
 
-.orderButton {
-	color: black;
-	cursor: s-resize;
+/* sizing issues with down/up arrows
+h4.expandTitle.hidden::after {
+  content: " \25B4";
 }
+*/
 
-.orderButton.invert {
-	cursor: n-resize;
+div.expandContent.hidden{
+  display: none;
 }

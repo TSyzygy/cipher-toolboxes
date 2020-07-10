@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lexend+Deca|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <script src="../../assets/animations.js"></script>
+  <script src="../../assets/generalScript.js"></script>
+  <script src="../../assets/vigenere.js"></script>
+  <script src="../../assets/english-quadgrams.js"></script>
   <script src="script.js"></script>
   <script src="evolution.js"></script>
 
@@ -38,12 +40,39 @@
   <section id="iocSection">
     <a class="anchor" id="ioc"></a>
     <h2>EVOLUTION ALGORITHM</h2>
-    <form autocomplete="off" id="evolutionForm">
+    <form autocomplete="off" id="evolutionForm" onchange="updateEvolutionForm()">
       <p>Message:</p>
-      <textarea name="message" rows="15" cols="80" id="evolutionMessage"></textarea>
-      <p>Alphabet:</p>
-      <button type="button" onclick="startEvolution()">START</button>
-      <button type="button" onclick="stopEvolution()" disabled>STOP</button><br>
-      <p style="margin-top: 3px;">Result: <span id="iocResult"></span></p>
+      <textarea name="message" rows="15" cols="80" id="evolutionMessage"></textarea><br>
+      <div id="evolutionOptions">
+        <div id="chooseCipher">
+          <h5>STEP 1: CHOOSE CIPHER</h5>
+          <input type="radio" name="cipher" value="vigenere" id="vigenere"><label for="vigenere"> Vigenere</label><br>
+          <input type="radio" name="cipher" value="transposition" id="transposition"><label for="transposition"> Transposition</label><br>
+        </div>
+        <div id="cipherOptions">
+          <h5>STEP 2: CIPHER OPTIONS</h5>
+          <div id="variableCipherOptions">
+            <label for="n">Keylength: </label><input type="number" value="2" min="2" max="40" size="2" id="n"><br>
+          </div>
+        </div>
+        <div id="chooseFitnessFunction">
+          <h5>STEP 3: CHOOSE FITNESS FUNCTION</h5>
+          <input type="radio" name="fitnessFunction" value="quadgrams" id="quadgrams"><label for="quadgrams"> Quadgram score function (English)</label><br>
+          <input type="radio" name="fitnessFunction" value="letters" id="letters"><label for="letters"> Letter score function (English)</label><br>
+        </div>
+        <div id="advancedOptions">
+          <h5>STEP 4: ADVANCED OPTIONS</h5>
+          <label for="populationSize">Population size: </label><input type="number" value="20" min="10" max="500" size="3" id="populationSize"><br>
+          <label for="birthRate">Birth rate: </label><input type="number" value="2" min="1" max="10" size="2" id="birthRate"><br>
+          <label for="randomPerGeneration">Random candidates per generation: </label><input type="number" value="5" min="0" max="200" size="3" id="randomPerGeneration"><br>
+        </div>
+      </div>
+      <button type="button" onclick="startEvolution()" id="startEvolutionButton">START</button>
+      <button type="button" onclick="stopEvolution()" id="stopEvolutionButton" disabled>STOP</button><br>
     </form>
+    <p style="margin-top: 3px;">Generations passed: <span id="genNum"></span></p>
+    <p>Generation:</p>
+    <ul class="striped keepSpacing" id="evolutionResult"></ul>
   </section>
+</body>
+</html>

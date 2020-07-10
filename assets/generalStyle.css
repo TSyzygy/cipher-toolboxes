@@ -32,13 +32,13 @@ header li {
 }
 
 header li a {
-    display: block;
+  display: block;
 	text-decoration: none;
 	text-align: center;
-    line-height: 45px;
+  line-height: 45px;
 	padding: 0 18px;
 	color: white;
-    background-color: #003b87;
+  background-color: #003b87;
 	font-family: 'Lexend Deca', sans-serif;
 }
 
@@ -70,19 +70,19 @@ header {
 
 #landing #subtitle {
 	line-height: 1.5;
-    text-align: center;
+  text-align: center;
 	font-family: 'Ubuntu Mono', monospace;
 	color: white;
 	font-weight: 400;
 }
 
 #noscriptAlert {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background: #222;
-    color: #FFF;
-    width: 100%;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: #222;
+  color: #FFF;
+  width: 100%;
 }
 
 #noscriptAlert p {
@@ -191,6 +191,10 @@ x {
 
 /* Forms */
 
+form {
+	margin-bottom: 5px;
+}
+
 form button {
 	padding: 3px;
 	margin-top: 5px;
@@ -199,16 +203,17 @@ form button {
 	background-color: #004aa8;
 }
 
-form {
-	margin-bottom: 5px;
-}
-
-form button:hover {
+form button:not(:disabled):hover {
 	background-color: #003b87;
 }
 
+form button:disabled {
+  background-color: #c8ddf8;
+  text-color: #333;
+}
+
 form p {
-    padding-bottom: 0;
+    padding: 0;
 }
 
 label  {

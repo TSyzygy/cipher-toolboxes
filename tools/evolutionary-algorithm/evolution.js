@@ -28,7 +28,9 @@ function* evolution (message, decryptFunction, scoreFunction, keylength = undefi
   var key;
   var nextGen;
 
-  function birth (key) {return [key, scoreFunction(decryptFunction(message, key))]};
+  console.log(decryptFunction);
+
+  function birth (key) {return [scoreFunction(decryptFunction(message, key)), key]};
 
   for (var i = 0; i < populationSize; i++) {
     generation.push(birth(generateKey(keylength)));
@@ -39,7 +41,7 @@ function* evolution (message, decryptFunction, scoreFunction, keylength = undefi
     children = [];
     for (var parent of generation) {
       for (var i = 0; i < birthRate; i++) {
-        children.push(birth(permuteKey(parent[0])));
+        children.push(birth(permuteKey(parent[1])));
       }
     }
     generation.push(...children);
@@ -51,7 +53,7 @@ function* evolution (message, decryptFunction, scoreFunction, keylength = undefi
     }
 
     // Sorts ascending and removes elements from front
-    generation.sort(function(a, b) {return a[1] - b[1]});
+    generation.sort(function(a, b) {return a[0] - b[0]});
     generation.splice(0, generation.length-populationSize);
     yield [n, generation];
   }
@@ -62,7 +64,6 @@ function* evolution (message, decryptFunction, scoreFunction, keylength = undefi
 // Function allowing easy use of evolution algorithm - pass it a function to run after each generation followed by the parameters for the evolution algorithm above
 function evolutionAlgorithm(eachGen) {
   evolutionRunning = true;
-  console.log(evolutionAlgorithm)
   var result;
   var p = evolution(...Array.prototype.slice.call(arguments, 1));
   function nextGen () {

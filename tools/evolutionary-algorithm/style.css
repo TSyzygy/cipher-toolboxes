@@ -10,13 +10,36 @@ h5 {
 }
 
 #evolutionOptions div {
-  width: 300px;
-  margin: 10px 0;
+  width: 320px;
+  margin: 10px 20px 10px 0;
+}
+
+.radioChoice {
+  padding: 2px 5px;
+  border: #FFF solid 1px;
+}
+
+.radioChoice.invalid {
+  border-color: #D01;
+}
+
+#evolutionMessage.invalid {
+  border-color: #D01;
 }
 
 input[type="number"] {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 15px;
+}
+
+input:invalid {
+  color: #D01
+}
+
+p.resultHeading {
+    margin-top: 3px;
+    color: grey;
+    padding-bottom: 1px;
 }
 
 ul.striped li {

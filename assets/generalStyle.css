@@ -21,59 +21,60 @@ page {
 
 header ul {
     list-style-type: none;
-	display: inline;
-	overflow: hidden;
-	background-color: #003b87;
+  display: inline;
+  overflow: hidden;
+  background-color: #003b87;
 }
 
 header li {
-  	float: right;
+    float: right;
     border-right: 1px solid white;
 }
 
 header li a {
   display: block;
-	text-decoration: none;
-	text-align: center;
+  text-decoration: none;
+  text-align: center;
   line-height: 45px;
-	padding: 0 18px;
-	color: white;
+  padding: 0 18px;
+  color: white;
   background-color: #003b87;
-	font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 header li a:hover {
-  	background-color: #111;
+    background-color: #111;
 }
 
 header li:first-child {
-  	border-right: none;
+    border-right: none;
 }
 
 header {
-	background-color: #003b87;
-	height: 45px;
-	position: fixed;
-	width: 100%
+  background-color: #003b87;
+  height: 45px;
+  position: fixed;
+  width: 100%
 }
 
 #landing {
-	background-color: #004aa8;
-	height: 22vh;
+  background-color: #004aa8;
+  height: 22vh;
 }
 
 #landing #title {
-	display: block;
-	padding-top: 10vh;
-	text-align: center;
+  display: block;
+  padding-top: 10vh;
+  text-align: center;
 }
 
 #landing #subtitle {
-	line-height: 1.5;
+  line-height: 1.5;
+  font-size: 15px;
   text-align: center;
-	font-family: 'Ubuntu Mono', monospace;
-	color: white;
-	font-weight: 400;
+  font-family: 'Ubuntu Mono', monospace;
+  color: white;
+  font-weight: 400;
 }
 
 #noscriptAlert {
@@ -86,94 +87,94 @@ header {
 }
 
 #noscriptAlert p {
-    padding: 10px;
+  padding: 10px;
 }
 
 #noscriptAlert a {
-    color: #c8ddf8;
+  color: #c8ddf8;
 }
 
 #noscriptAlert a:hover {
-    color: #004aa8;
+  color: #004aa8;
 }
 
 section {
-	padding: 0 18px;
+  padding: 0 18px;
 }
 
 h1 {
-	font-family: 'Ubuntu Mono', monospace;
-	color: white;
-	text-align: center;
+  font-family: 'Ubuntu Mono', monospace;
+  color: white;
+  text-align: center;
 }
 
 h2 {
-	font-family: 'Lexend Deca', sans-serif;
-	color: #003b87;
-	font-size: 24px;
-	padding: 2vh 0;
-	margin: 0;
+  font-family: 'Lexend Deca', sans-serif;
+  color: #003b87;
+  font-size: 24px;
+  padding: 2vh 0;
+  margin: 0;
 }
 
 h3 {
-	display: inline;
-    line-height: 45px;
-	padding-left: 10px;
-	font-family: 'Ubuntu Mono', monospace;
-	color: white;
+  display: inline;
+  line-height: 45px;
+  padding-left: 10px;
+  font-family: 'Ubuntu Mono', monospace;
+  color: white;
 }
 
 h3 a {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 h4 {
-	font-family: 'Ubuntu Mono', monospace;
-	font-weight: 700;
-	font-size: 15px;
-	color: #004aa8;
-	text-align: left;
-  margin-bottom: 5px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  color: #004aa8;
+  text-align: left;
+  margin: 10px 0;
 }
 
 
 .contentsList {
-	font-family: 'Inconsolata', monospace;
-	font-weight: 400;
-	list-style-type: none;
-	padding-bottom: 2vh
+  font-family: 'Inconsolata', monospace;
+  font-weight: 400;
+  list-style-type: none;
+  padding-bottom: 2vh
 }
 
 .contentsList li a {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .contentsList li a:hover {
-	color: #003b87;
+  color: #003b87;
 }
 
 p {
-	font-family: 'Inconsolata', monospace;
-	font-size: 15px;
-	padding-bottom: 15px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 15px;
+  padding-bottom: 15px;
 }
 
 p a {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: #004aa8;
 }
 
 p a:hover {
-	color: #003b87;
+  color: #003b87;
 }
 
 a.anchor {
-    display: block;
-    position: relative;
-    top: -5vh;
-    visibility: hidden;
+  display: block;
+  position: relative;
+  top: -5vh;
+  visibility: hidden;
 }
 
 .keepSpacing {
@@ -181,30 +182,30 @@ a.anchor {
 }
 
 x {
-	display: inline;
-	font-family: 'Ubuntu Mono', monospace;
-	color: white;
-	background-color: grey;
-	padding: 2px;
+  display: inline;
+  font-family: 'Ubuntu Mono', monospace;
+  color: white;
+  background-color: grey;
+  padding: 2px;
 }
 
 
 /* Forms */
 
 form {
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 form button {
-	padding: 3px;
-	margin-top: 5px;
-	font-family: 'Lexend Deca', sans-serif;
-	color: white;
-	background-color: #004aa8;
+  padding: 3px;
+  margin-top: 5px;
+  font-family: 'Lexend Deca', sans-serif;
+  color: white;
+  background-color: #004aa8;
 }
 
 form button:not(:disabled):hover {
-	background-color: #003b87;
+  background-color: #003b87;
 }
 
 form button:disabled {
@@ -213,12 +214,12 @@ form button:disabled {
 }
 
 form p {
-    padding: 0;
+  padding: 0;
 }
 
 label  {
-	font-family: 'Inconsolata', monospace;
-	font-size: 15px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 15px;
 }
 
 input:focus {
@@ -229,41 +230,53 @@ input[readonly] {
     color: #777
 }
 
+input[type="number", size="1"] {
+  width: 1em;
+}
+
+input[type="number", size="2"] {
+  width: 2em;
+}
+
+input[type="number", size="3"] {
+  width: 3em;
+}
+
 textarea {
-	font-family: 'Ubuntu Mono', monospace;
-	border: 1px solid grey;
-	padding: 2px;
+  font-family: 'Ubuntu Mono', monospace;
+  border: 1px solid grey;
+  padding: 2px;
 }
 
 
 /* Tooltip container */
 .tooltip {
-	font-family: 'Ubuntu Mono', monospace;
-	position: relative;
-	display: inline-block;
-	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  font-family: 'Ubuntu Mono', monospace;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: 15px;
-	visibility: hidden;
-	background-color: black;
-	color: #fff;
-	text-align: center;
-	padding: 2px 0;
-	margin-left: 5px;
-	border-radius: 6px;
-	position: absolute;
-	z-index: 1;
-	top: -2px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 15px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 2px 0;
+  margin-left: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: -2px;
     left: 105%;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
-  	visibility: visible;
+    visibility: visible;
 }
 
 

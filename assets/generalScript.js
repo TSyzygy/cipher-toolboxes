@@ -33,7 +33,6 @@ function setupExpandInfo() {
     var c = expandContents[i];
     t.dataset.expandId = i;
     t.addEventListener('click', function () {
-      console.log(this.getAttribute('data-expand-id'))
       document.getElementById('ec' + String(this.getAttribute('data-expand-id'))).classList.toggle('hidden');
       this.classList.toggle('hidden');
     });

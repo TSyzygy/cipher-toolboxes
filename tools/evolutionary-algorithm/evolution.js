@@ -1,36 +1,14 @@
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var evolutionRunning = false;
 
-function randRange(min, max) { // largest number that can be returned is max-1
-    return Math.floor(Math.random() * (max - min)) + min
-}
-
-function generateAlphaKey (keylength) {
-  var key = "";
-  for (i = 0; i < keylength; i++) {
-    key += alphabet[randRange(0, 26)]
-  }
-  return key;
-}
-
-function permuteAlphaKey (key, permuteFactor) {
-  var toReplace = randRange(0, key.length);
-  var replaceWith = randRange(0, 26);
-  key = key.split("")
-  key[toReplace] = alphabet[replaceWith];
-  return key.join("");
-}
-
-function* evolution (message, decryptFunction, scoreFunction, keylength = undefined, populationSize = 20, birthRate = 2, randomPerGeneration = 5, maxGenerations = 200, generateKey = generateAlphaKey, permuteKey = permuteAlphaKey) {
+function* evolution (message, decrypt, generateKey, permuteKey, score, keylength = undefined, populationSize = 20, birthRate = 2, randomPerGeneration = 5, maxGenerations = 200) {
 
   // Setup
   var generation = [];
   var key;
   var nextGen;
 
-  console.log(decryptFunction);
-
-  function birth (key) {return [scoreFunction(decryptFunction(message, key)), key]};
+  function birth (key) {return [score(decrypt(message, key)), key]};
 
   for (var i = 0; i < populationSize; i++) {
     generation.push(birth(generateKey(keylength)));

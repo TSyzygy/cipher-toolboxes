@@ -138,6 +138,12 @@ h4 {
   margin: 10px 0;
 }
 
+h5 {
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: normal;
+  color: #004aa8;
+  padding: 14px 0 3px;
+}
 
 .contentsList {
   font-family: 'Inconsolata', monospace;

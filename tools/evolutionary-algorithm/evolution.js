@@ -15,6 +15,8 @@ function* evolution (message, decrypt, generateKey, permuteKey, score, keylength
   }
 
   for (var n = 0; n < maxGenerations; n++) {
+    yield [n, generation];
+
     // Adds children
     children = [];
     for (var parent of generation) {
@@ -33,7 +35,6 @@ function* evolution (message, decrypt, generateKey, permuteKey, score, keylength
     // Sorts ascending and removes elements from front
     generation.sort(function(a, b) {return a[0] - b[0]});
     generation.splice(0, generation.length-populationSize);
-    yield [n, generation];
   }
 
   return [n, generation];

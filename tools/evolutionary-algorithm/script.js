@@ -149,6 +149,26 @@ function startEvolution () {
         document.getElementById("bestKeyTimeFound").innerHTML = bestKeyInfo[2] + "ms";
       }
 
+      // Updates saturation status
+      var worstKey = keysFound[keysFound.length - 1][1];
+      if (typeof(bestKey) == "string") {
+         var saturated = (bestKey == worstKey)
+      } else {
+        saturated = true;
+        for (i = 0; i < bestKey.length; i++) {
+          if (bestKey[i] != worstKey[i]) {
+            saturated = false;
+            break;
+          }
+        }
+      }
+
+      if (saturated) {
+        document.getElementById("saturationStatus").innerHTML = "Y";
+      } else {
+        document.getElementById("saturationStatus").innerHTML = "N";
+      };
+
       for (var result of keysFound) {
         var key = result[1];
         var node = document.createElement("LI"); // Create a <li> node

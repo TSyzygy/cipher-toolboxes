@@ -27,8 +27,6 @@ function transpositionCrypt (m, k, decrypt = true, pad = "X") {
       result += m[row*keylength + col];
     }
   }
-  
-  console.log(result);
 
   return result;
 }

@@ -5,7 +5,7 @@ var cipherSpecificFunctions = { // decrypt, generateKey, permuteKey
 
 var scoreFunctions = {
   "quadgrams": quadgramScore,
-  // "letters": letterScore
+  "letters": letterScore
 }
 
 

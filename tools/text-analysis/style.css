@@ -147,21 +147,6 @@ h2 {
 	color: #003b87;
 }
 
-p {
-	font-family: 'Inconsolata', monospace;
-	font-size: 15px;
-	padding-bottom: 15px;
-}
-
-p a {
-	text-decoration: none;
-	color: inherit;
-}
-
-p a:hover {
-	color: #003b87;
-}
-
 .keepSpacing {
     white-space: pre;
 }
@@ -191,9 +176,9 @@ p a:hover {
 }
 
 p.resultHeading {
-    margin-top: 3px;
-    color: grey;
-    padding-bottom: 1px;
+  margin-top: 3px;
+  color: grey;
+  padding-bottom: 1px;
 }
 
 p.resultHeading.hidden {

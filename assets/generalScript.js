@@ -42,3 +42,15 @@ function setupExpandInfo() {
     c.classList.add("hidden")
   }
 }
+
+function padBefore(text, size) {
+    var s = String(text);
+    while (s.length < (size || 2)) {s = " " + s;}
+    return s;
+} // source: https://gist.github.com/endel/321925f6cafa25bbfbde
+
+function padAfter(text, size) {
+    var s = String(text);
+    while (s.length < (size || 2)) {s += " ";}
+    return s;
+} // source: https://gist.github.com/endel/321925f6cafa25bbfbde

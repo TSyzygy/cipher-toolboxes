@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Text Analysis Tools - Cipher Toolboxes</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/generalStyle.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lexend+Deca|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <script src="../../assets/generalScript.js"></script>
+  <script src="../../assets/vigenere.js"></script>
+  <script src="../../assets/transposition.js"></script>
+  <script src="../../assets/english-quadgrams.js"></script>
+  <script src="script.js"></script>
+  <script src="evolution.js"></script>
+
+  <noscript>
+    <div id="noscriptAlert">
+      <p>You don't have <em>javascript</em> enabled for this webpage. All of the tools on this website require javascript to function, so we recommend that you <a href="https://www.enable-javascript.com">turn it on.</a></p>
+    </div>
+  </noscript>
+
+  <header>
+    <h3><a href="">CIPHER TOOLBOXES</a></h3>
+    <ul>
+      <li><a href="">ABOUT</a></li>
+      <li><a href="">COOL STUFF</a></li>
+      <li><a href="">CIPHERS</a></li>
+      <li><a href="">TOOLS</a></li>
+    </ul>
+  </header>
+
+  <section id="landing">
+    <h1 id="title"><noscript>Toolbox A3: Evolutionary Algorithm</noscript></h1>
+    <h2 id="subtitle"><noscript>Simulates natural selection to solve ciphers</noscript></h2>
+  </section>
+
+  <section id="iocSection">
+    <a class="anchor" id="ioc"></a>
+    <h2>EVOLUTIONARY ALGORITHM</h2>
+    <form autocomplete="off" name="evolutionForm">
+      <p>Message:</p>
+      <textarea name="message" rows="15" cols="80" id="evolutionMessage"></textarea><br>
+      <div id="evolutionOptions">
+        <div id="chooseCipher">
+          <h5>STEP 1: CHOOSE CIPHER</h5>
+          <div class="radioChoice" id="cipherRadio">
+            <input type="radio" name="cipher" value="vigenere" id="vigenere"><label for="vigenere"> Vigenere</label><br>
+            <input type="radio" name="cipher" value="transposition" id="transposition"><label for="transposition"> Transposition</label><br>
+          </div>
+        </div>
+        <div id="cipherOptions">
+          <h5>STEP 2: CIPHER OPTIONS</h5>
+          <div>
+            <label for="keylength">Keylength: </label><input type="number" value="2" min="2" size="2" name="keylength" id="keylength"><br>
+          </div>
+        </div>
+        <div id="chooseFitnessFunction">
+          <h5>STEP 3: CHOOSE FITNESS FUNCTION</h5>
+          <div class="radioChoice" id="fitnessFunctionRadio">
+            <input type="radio" name="fitnessFunction" value="quadgrams" id="quadgrams"><label for="quadgrams"> Quadgram score (English)</label><br>
+            <input type="radio" name="fitnessFunction" value="letters" id="letters"><label for="letters"> Letter score (English)</label><br>
+          </div>
+        </div>
+        <div id="advancedOptions">
+          <h5>STEP 4: ADVANCED OPTIONS</h5>
+          <div>
+            <label for="populationSize">Population size: </label><input type="number" value="20" min="10" max="500" size="3" name="populationSize" id="populationSize"><br>
+            <label for="birthRate">Birth rate: </label><input type="number" value="2" min="1" max="10" size="2" name="birthRate" id="birthRate"><br>
+            <label for="randomPerGeneration">Random candidates per generation: </label><input type="number" value="5" min="0" max="200" size="3" name="randomPerGeneration" id="randomPerGeneration"><br>
+            <label for="generationLimit">Max generations: </label><input type="number" value="500" min="10" max="5000" size="4" name="generationLimit" id="generationLimit">
+          </div>
+        </div>
+      </div>
+      <button type="button" onclick="startEvolution()" id="startEvolutionButton">START</button>
+      <button type="button" onclick="stopEvolution()" id="stopEvolutionButton" disabled>STOP</button><br>
+    </form>
+    <p style="padding: 0; margin: 3px 0;">Generations passed: <span id="genNum"></span></p>
+    <p style="padding: 0; margin: 3px 0;">Time passed: <span id="timePassed"></span></p>
+    <h5>BEST DECRYPTION FOUND</h5>
+    <p style="padding: 5px 0;">Key: <x id="bestKey"></x></p>
+    <p id="bestDecryption"></p>
+    <h5>TOP 10 CANDIDATES</h5>
+    <p class="resultHeading keepSpacing">KEY<span id="keyColumnHeaderSpace"></span>SCORE</p>
+    <ul class="striped keepSpacing" id="evolutionResult"></ul>
+
+    <h4 class="expandTitle">Test ciphers</h4>
+    <div class="expandContent">
+      <p>Here are some ciphers you could use to try out this program. It can solve them all if you work out the type of cipher and keylength for each one (there are some other tools on this website you might find handy for that!) Once you've decrypted each one, you could try changing some of the advanced options to see if you can find the optimum parameters for the fastest average solve time... good luck!</p>
+      <ul>
+        <li><p><a href="https://www.cipherchallenge.org/challenge/competition-challenge-9/" target="_blank">Challenge 9A from the National Cipher Challenge 2020 SE.</a> Bear in mind that if you are competing in the competition you must write your own programs to solve the ciphers, but since this one is over you can use it for some practice!</p></li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

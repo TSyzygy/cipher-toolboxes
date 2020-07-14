@@ -10,7 +10,7 @@
   border: #FFF solid 1px;
 }
 
-.radioChoice.invalid {
+#evolutionOptions .radioChoice.invalid {
   border-color: #D01;
 }
 
@@ -24,7 +24,15 @@ input[type="number"] {
 }
 
 input:invalid {
-  color: #D01
+  color: #D01;
+}
+
+input:disabled {
+  color: #333;
+}
+
+span.disabled {
+  color: #888;
 }
 
 p.resultHeading {

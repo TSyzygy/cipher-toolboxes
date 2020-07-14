@@ -15,7 +15,12 @@ var cipherSpecificFunctions = { // decrypt, generateKey, permuteKey
 
 var scoreFunctions = {
   "quadgrams": quadgramScore,
-  "letters": letterScore
+  "letters": letterScore,
+  "ioc": iocScore
+};
+
+function iocScore (text, language = "english") {
+  return - 1000 * Math.abs(expectedIoc[language] - ioc(text));
 };
 
 function randRange(min, max) { // largest number that can be returned is max-1
@@ -156,11 +161,15 @@ function startEvolution () {
   var populationSize = form["populationSize"].value;
   var birthRate = form["birthRate"].value;
   var randomPerGeneration = form["randomPerGeneration"].value;
-  var generationLimit = form["generationLimit"].value;
+  if (form["limitGenerations"].checked) {
+    var generationLimit = form["maxGenerations"].value;
+  } else {
+    var generationLimit = Infinity;
+  };
 
   if (!validated) {
-    return;
-  }
+    return
+  };
 
   document.getElementById("startEvolutionButton").setAttribute("disabled", "true");
   document.getElementById("stopEvolutionButton").removeAttribute("disabled");

@@ -6,22 +6,6 @@ function calculateIOC() {
 	document.getElementById("iocResult").innerHTML = Number(Math.round(ioc(text, alphabet, caseSensitive)+'e5')+'e-5');
 }
 
-// Does the raw IOC calculation
-function ioc(text, alphabet, caseSensitive) {
-	if (caseSensitive == false) {
-		text = text.toUpperCase();
-		alphabet = alphabet.toUpperCase();
-	}
-	text = text.split('').filter(c => alphabet.indexOf(c) > -1).join("");
-	var l = text.length;
-	var ioc = 0;
-	for (let i = 0; i < alphabet.length; i++) {
-		a = [...text].filter(k => k === alphabet[i]).length;
-		ioc += (a/l) * ((a-1)/(l-1));
-	}
-	return (ioc * alphabet.length);
-}
-
 // Does the cool forms stuff for the frequency analyser
 function updateFreqAlphabet() {
 	if (document.getElementById("letters").checked == true) {

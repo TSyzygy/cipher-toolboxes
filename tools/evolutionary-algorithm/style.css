@@ -3,14 +3,14 @@
   flex-wrap: wrap;
 }
 
-#evolutionOptions div {
+#evolutionOptions div div {
   width: 320px;
   margin: 0 20px 0 0;
   padding: 2px 5px;
   border: #FFF solid 1px;
 }
 
-#evolutionOptions .radioChoice.invalid {
+#evolutionOptions div div.invalid {
   border-color: #D01;
 }
 
@@ -36,9 +36,9 @@ span.disabled {
 }
 
 p.resultHeading {
-    margin-top: 3px;
-    color: grey;
-    padding-bottom: 1px;
+  margin-top: 3px;
+  color: grey;
+  padding-bottom: 1px;
 }
 
 ul.striped li {

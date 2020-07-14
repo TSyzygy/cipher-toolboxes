@@ -1,18 +1,26 @@
 var cipherSpecificFunctions = { // decrypt, generateKey, permuteKey
-  "vigenere": [vigenereCrypt, generateAlphaKey, permuteAlphaKey],
-  "transposition": [transpositionCrypt, generateOrderKey, permuteOrderKey]
+  "vigenere":
+    [
+      vigenereCrypt,
+      generateAlphaKey,
+      permuteAlphaKey
+    ],
+  "transposition":
+    [
+      transpositionCrypt,
+      generateOrderKey,
+      permuteOrderKey
+    ]
 };
 
 var scoreFunctions = {
   "quadgrams": quadgramScore,
   "letters": letterScore
-}
-
+};
 
 function randRange(min, max) { // largest number that can be returned is max-1
     return Math.floor(Math.random() * (max - min)) + min
-}
-
+};
 
 // Key functions
 
@@ -20,7 +28,7 @@ function generateAlphaKey (keylength) {
   var key = "";
   for (i = 0; i < keylength; i++) {
     key += alphabet[randRange(0, 26)]
-  }
+  };
   return key;
 }
 
@@ -33,7 +41,7 @@ function permuteAlphaKey (key) {
 }
 
 function generateOrderKey (keylength) {
-  function shuffle(a) {
+  function shuffle (a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
@@ -51,18 +59,65 @@ function generateOrderKey (keylength) {
 }
 
 function permuteOrderKey (key) {
-  var keylength = key.length;
+  var operations, operationWeights, i, f, n, repeat, operation;
   var newKey = [...key];
-  // Gets two different locations to swap
-  var posA = randRange(0, keylength);
-  do {
-    var posB = randRange(0, keylength);
-  } while (posA == posB);
-  var temp = newKey[posA];
-  newKey[posA] = newKey[posB];
-  newKey[posB] = temp;
+
+  // Swaps two randomly chosen positions within the key
+  function swap (key) {
+    var posB, temp;
+    var keylength = key.length;
+    var posA = randRange(0, keylength);
+    do {
+      posB = randRange(0, keylength);
+    } while (posA == posB);
+    temp = key[posA];
+    key[posA] = key[posB];
+    key[posB] = temp;
+    return key;
+  }
+
+  // Shifts some positions from the front to the back of the list
+  function flip (key) {
+    var keylength = key.length;
+    var posA = randRange(1, keylength);
+    return key.slice(posA, keylength).concat(key.slice(0, posA));
+  }
+
+  // Shifts a block some distance to the right
+  function shift (key) {
+    var keylength = key.length;
+    var blockStart, blockEnd, distance, moveTo;
+    var blockLength = randRange(1, keylength - 1); // 9
+    blockStart = randRange(0, keylength - blockLength); // 0
+    blockEnd = blockStart + blockLength;
+    distance = randRange(1, keylength - blockLength - blockStart + 1); // 1
+    moveTo = blockEnd + distance;
+    return [...key.slice(0, blockStart), ...key.slice(blockEnd, moveTo), ...key.slice(blockStart, blockEnd), ...key.slice(moveTo, keylength)];
+  }
+
+  operations = [ // The different operations
+    swap,
+    flip,
+    shift
+  ];
+  operationWeights = [ // The different combinations of the operations; each 'column' below is equally weighted
+    [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3],
+    [1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 0, 0]
+  ];
+
+  i = randRange(0, operationWeights[0].length);
+
+  for (f = 0; f < operations.length; f++) {
+    repeat = operationWeights[f][i];
+    operation = operations[f];
+    for (n = 0; n < repeat; n++) {
+      newKey = operation([...newKey]);
+    }
+  }
+
   return newKey;
-}
+};
 
 
 function startEvolution () {

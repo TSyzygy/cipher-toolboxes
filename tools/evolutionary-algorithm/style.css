@@ -18,6 +18,23 @@
   border-color: #D01;
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px;
+  text-align: center;
+  font-family: 'Inconsolata', monospace;
+  font-weight: normal;
+}
+
+input[type="radio"] {
+  height: 15px;
+  width: 15px;
+}
+
 input[type="number"] {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 15px;

@@ -13,4 +13,6 @@ function ioc (text, alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", caseSensitive = fal
 	return (ioc * alphabet.length);
 };
 
-var expectedIoc = {"english": 1.73};
+function iocScore (text, language = "english") {
+  return - 1000 * Math.abs(languageData[language]["ioc"] - ioc(text));
+};

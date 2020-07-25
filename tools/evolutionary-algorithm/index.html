@@ -13,7 +13,8 @@
   <script src="../../assets/generalScript.js"></script>
   <script src="../../assets/vigenere.js"></script>
   <script src="../../assets/transposition.js"></script>
-  <script src="../../assets/english-quadgrams.js"></script>
+  <script src="../../assets/language-data/script.js"></script>
+  <script src="../../assets/language-data/ngrams/ngram-analysis.js"></script>
   <script src="../../assets/letterScore.js"></script>
   <script src="../../assets/ioc.js"></script>
   <script src="script.js"></script>
@@ -49,7 +50,7 @@
       <div id="evolutionOptions">
         <div id="chooseCipher">
           <h5>STEP 1: CHOOSE CIPHER</h5>
-          <div id="cipherRadio">
+          <div class="radioChoice" id="cipherRadio">
             <input type="radio" name="cipher" value="vigenere" id="vigenere"><label for="vigenere"> Vigenere</label><br>
             <input type="radio" name="cipher" value="transposition" id="transposition"><label for="transposition"> Transposition</label><br>
           </div>
@@ -62,10 +63,57 @@
         </div>
         <div id="chooseFitnessFunction">
           <h5>STEP 3: CHOOSE FITNESS FUNCTION</h5>
-          <div id="fitnessFunctionRadio">
+          <!--<div class="radioChoice" id="fitnessFunctionRadio">
             <input type="radio" name="fitnessFunction" value="quadgrams" id="quadgrams"><label for="quadgrams"> Quadgram score (English)</label><br>
             <input type="radio" name="fitnessFunction" value="letters" id="letters"><label for="letters"> Letter score (English)</label><br>
             <input type="radio" name="fitnessFunction" value="ioc" id="ioc"><label for="ioc"> Index of Coincidence (English)</label><br>
+          </div>-->
+          <div id="fitnessFunctionRadio">
+            <table>
+              <tr>
+                <th rowspan="2">Language</th>
+                <th colspan="5">Ngram score</th>
+                <th rowspan="2">Words score</th>
+                <th rowspan="2">IOC</th>
+              </tr>
+              <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+              </tr>
+              <tr data-language="english">
+                <th>English</th>
+                <td><input type="radio" name="fitnessFunction" value="1"></td>
+                <td><input type="radio" name="fitnessFunction" value="2"></td>
+                <td><input type="radio" name="fitnessFunction" value="3"></td>
+                <td><input type="radio" name="fitnessFunction" value="4"></td>
+                <td><input type="radio" name="fitnessFunction" value="5"></td>
+                <td><input type="radio" name="fitnessFunction" value="words"></td>
+                <td><input type="radio" name="fitnessFunction" value="ioc"></td>
+              </tr>
+              <tr data-language="german">
+                <th>German</th>
+                <td><input type="radio" name="fitnessFunction" value="1"></td>
+                <td><input type="radio" name="fitnessFunction" value="2"></td>
+                <td><input type="radio" name="fitnessFunction" value="3"></td>
+                <td><input type="radio" name="fitnessFunction" value="4"></td>
+                <td><input type="radio" name="fitnessFunction" value="5" disabled></td>
+                <td><input type="radio" name="fitnessFunction" value="words" disabled></td>
+                <td><input type="radio" name="fitnessFunction" value="ioc"></td>
+              </tr>
+              <tr data-language="french">
+                <th>French</th>
+                <td><input type="radio" name="fitnessFunction" value="1"></td>
+                <td><input type="radio" name="fitnessFunction" value="2"></td>
+                <td><input type="radio" name="fitnessFunction" value="3"></td>
+                <td><input type="radio" name="fitnessFunction" value="4"></td>
+                <td><input type="radio" name="fitnessFunction" value="5" disabled></td>
+                <td><input type="radio" name="fitnessFunction" value="words" disabled></td>
+                <td><input type="radio" name="fitnessFunction" value="ioc"></td>
+              </tr>
+            </table>
           </div>
         </div>
         <div id="advancedOptions">

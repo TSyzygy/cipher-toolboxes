@@ -14,13 +14,9 @@ var cipherSpecificFunctions = { // decrypt, generateKey, permuteKey
 };
 
 var scoreFunctions = {
-  "quadgrams": quadgramScore,
+  "ngrams": ngramScore,
   "letters": letterScore,
   "ioc": iocScore
-};
-
-function iocScore (text, language = "english") {
-  return - 1000 * Math.abs(expectedIoc[language] - ioc(text));
 };
 
 function randRange(min, max) { // largest number that can be returned is max-1
@@ -149,7 +145,13 @@ function startEvolution () {
   var keylength = form["keylength"].value;
 
   // Sets score/fitness function
-  var fitnessName = form.elements["fitnessFunction"].value
+  form["fitnessFunction"].forEach(item => if (item.checked) {
+    var language = item.parentNode.dataset.language;
+    var value = item.value;
+    if (value == "words") {
+      var fitnessFunction = function (text) {}
+    }
+  })
   if (fitnessName == "") {
     validated = false;
     document.getElementById("fitnessFunctionRadio").classList.add("invalid");
